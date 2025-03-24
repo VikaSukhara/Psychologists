@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+      "*.js": "javascriptreact"
+    },
+
+    "editor.quickSuggestions": {
+      "strings": true
+    }
+    
+  }
+  
+
+
