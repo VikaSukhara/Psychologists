@@ -1,15 +1,23 @@
-// import { Formik, Form } from 'formik';
-// import * as Yup from 'yup';
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 
-import { Button, ButtonLogIn, H2, P } from "./LogIn.styled";
+import {
+  Button,
+  ButtonLogIn,
+  H2,
+  Input,
+  Label,
+  P,
+  StyledError,
+} from "./LogIn.styled";
 
-// const SignInSchema = Yup.object().shape({
-//     email: Yup.string().email('Invalid email').required('Required'),
-//     password: Yup.string()
-//       .min(5, 'Too Short!')
-//       .max(50, 'Too Long!')
-//       .required('Required'),
-//   });
+const LogInSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Required'),
+    password: Yup.string()
+      .min(5, 'Too Short!')
+      .max(50, 'Too Long!')
+      .required('Required'),
+  });
 
 function LogIn({ onClose }) {
   return (
@@ -44,13 +52,39 @@ function LogIn({ onClose }) {
         Welcome back! Please enter your credentials to access your account and
         continue your search for a psychologist.
       </P>
-      <label>
-        {" "}
-        <input type="email" name="email" id="email" />
-      </label>
 
-      <input type="password" name="password" id="password" />
-      <ButtonLogIn>Log In</ButtonLogIn>
+      <Formik
+        initialValues={{
+          email: "",
+          password: "",
+        }}
+        validationSchema={LogInSchema}
+        onSubmit={(values, {resetForm})=> {
+          console.log("Form data", values);
+          resetForm();  // Очищуємо форму
+          onClose();    // Закриваємо модалку ✅
+        }}
+
+        >
+        <Form>
+          <Label>
+            <Input type="email" name="email" placeholder="Enter your email" />
+            <StyledError name="email" component="div" />
+          </Label>
+
+          <Label>
+            {" "}
+            <Input
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+            />
+            <StyledError name="password" component="div" />
+          </Label>
+
+          <ButtonLogIn type="submit">Log In</ButtonLogIn>
+        </Form>
+      </Formik>
     </div>
   );
 }
