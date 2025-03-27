@@ -1,3 +1,4 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import {
   Button,
   ButtonSignUp,
@@ -8,6 +9,7 @@ import {
 } from "./Registration.styled";
 import { Formik, Form } from "formik";
 import * as yup from "yup";
+import { auth } from "../../firebase";
 
 let RegistrationSchema = yup.object().shape({
   name: yup
@@ -23,10 +25,10 @@ let RegistrationSchema = yup.object().shape({
     .required("Required"),
 });
 
-function Registration({ onClose }) {
+function Registration({ toggleModal }) {
   return (
     <div>
-      <Button onClick={onClose}>
+      <Button onClick={toggleModal}>
         <svg
           width="32"
           height="32"
@@ -59,12 +61,16 @@ function Registration({ onClose }) {
         initialValues={{ name: "", email: "", password: "" }}
         validationSchema={RegistrationSchema}
         onSubmit={(values, { resetForm }) => {
-          console.log("Form data", values);
-          resetForm();  // Очищуємо форму
-          onClose();    // Закриваємо модалку ✅
+          console.log("submit is done")
+          resetForm(); // Очищуємо форму
+          toggleModal(); // Закриваємо модалку ✅
+        
+          createUserWithEmailAndPassword(auth, values.email, values.password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log('User is registered:', user);
+          });
         }}
-
-
       >
         <Form style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
           <label>

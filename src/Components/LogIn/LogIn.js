@@ -10,19 +10,21 @@ import {
   P,
   StyledError,
 } from "./LogIn.styled";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const LogInSchema = Yup.object().shape({
-    email: Yup.string().email('Invalid email').required('Required'),
-    password: Yup.string()
-      .min(5, 'Too Short!')
-      .max(50, 'Too Long!')
-      .required('Required'),
-  });
+  email: Yup.string().email("Invalid email").required("Required"),
+  password: Yup.string()
+    .min(5, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+});
 
-function LogIn({ onClose }) {
+function LogIn({ toggleModal }) {
   return (
     <div>
-      <Button onClick={onClose}>
+      <Button onClick={toggleModal}>
         <svg
           width="32"
           height="32"
@@ -59,14 +61,22 @@ function LogIn({ onClose }) {
           password: "",
         }}
         validationSchema={LogInSchema}
-        onSubmit={(values, {resetForm})=> {
+        onSubmit={(values, { resetForm }) => {
           console.log("Form data", values);
-          resetForm();  // Очищуємо форму
-          onClose();    // Закриваємо модалку ✅
-        }}
+          resetForm(); // Очищуємо форму
+          toggleModal(); // Закриваємо модалку ✅
 
-        >
-        <Form>
+          signInWithEmailAndPassword(auth, values.email, values.password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+              console.log("User logged in:", user);
+            })
+            .catch((err) => {
+              console.log("Wrong email or password. Try again", err.message);
+            });
+        }}
+      >
+        <Form style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
           <Label>
             <Input type="email" name="email" placeholder="Enter your email" />
             <StyledError name="email" component="div" />

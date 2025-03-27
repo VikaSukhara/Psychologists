@@ -8,6 +8,13 @@ import LogIn from "../LogIn/LogIn";
 function Layout() {
   const [isLogInOpen, setIsLogInOpen] = useState(false);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+
+  const toggleModalLogIn = () => {
+    setIsLogInOpen(!isLogInOpen);
+  };
+  const ToggleModalRegistration = () => {
+    setIsRegistrationOpen(!isRegistrationOpen);
+  };
   return (
     <Nav>
       <Container>
@@ -16,27 +23,30 @@ function Layout() {
           Home
         </Link>
         <Link to="/about">Psychologists</Link>
-        <BtnContainer > 
+        <BtnContainer>
           {" "}
-          <NavBtn onClick={() => setIsLogInOpen(true)} style={{ marginRight: "8px" }}>Log in</NavBtn>
-          <NavBtn onClick={() => setIsRegistrationOpen(true)}>Registration</NavBtn>
+          <NavBtn
+            onClick={() => setIsLogInOpen(true)}
+            style={{ marginRight: "8px" }}
+          >
+            Log in
+          </NavBtn>
+          <NavBtn onClick={() => setIsRegistrationOpen(true)}>
+            Registration
+          </NavBtn>
         </BtnContainer>
       </Container>
       {isLogInOpen && (
-        <Modal isOpen={isLogInOpen} onClose={() => setIsLogInOpen(false)}>
-          <LogIn onClose={() => setIsLogInOpen(false)} />
+        <Modal isOpen={isLogInOpen} toggleModal={toggleModalLogIn}>
+          <LogIn toggleModal={toggleModalLogIn} />
         </Modal>
       )}
 
-
-      {/* Модальне вікно Registration */}
       {isRegistrationOpen && (
-        <Modal isOpen={isRegistrationOpen} onClose={() => setIsRegistrationOpen(false)}>
-          <Registration onClose={() => setIsRegistrationOpen(false)} />
+        <Modal isOpen={isRegistrationOpen} toggleModal={ToggleModalRegistration}>
+          <Registration toggleModal={ToggleModalRegistration} />
         </Modal>
       )}
-
-
 
       <Outlet />
     </Nav>
