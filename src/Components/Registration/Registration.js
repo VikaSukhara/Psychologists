@@ -10,6 +10,8 @@ import {
 import { Formik, Form } from "formik";
 import * as yup from "yup";
 import { auth } from "../../firebase";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../redux/action";
 
 let RegistrationSchema = yup.object().shape({
   name: yup
@@ -26,6 +28,7 @@ let RegistrationSchema = yup.object().shape({
 });
 
 function Registration({ toggleModal }) {
+  const dispatch = useDispatch();
   return (
     <div>
       <Button onClick={toggleModal}>
@@ -61,14 +64,26 @@ function Registration({ toggleModal }) {
         initialValues={{ name: "", email: "", password: "" }}
         validationSchema={RegistrationSchema}
         onSubmit={(values, { resetForm }) => {
-          console.log("submit is done")
+          console.log("submit is done");
           resetForm(); // Очищуємо форму
           toggleModal(); // Закриваємо модалку ✅
-        
-          createUserWithEmailAndPassword(auth, values.email, values.password)
-          .then((userCredential) => {
+
+          createUserWithEmailAndPassword(
+            auth,
+            values.email,
+            values.password
+          ).then((userCredential) => {
             const user = userCredential.user;
-            console.log('User is registered:', user);
+            console.log("User is registered:", user);
+
+            // Додаємо користувача в Redux Store
+            dispatch(
+              loginUser({
+                uid: user.uid,
+                name: values.name,
+                email: user.email,
+              })
+            );
           });
         }}
       >

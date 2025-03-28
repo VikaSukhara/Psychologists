@@ -28,6 +28,8 @@ export const Container = styled.nav`
   padding: 0 128px;
 `;
 
+
+
 export const Logo = styled(NavLink)`
   display: none;
   color: var(--text-color--);
