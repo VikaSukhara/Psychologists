@@ -79,6 +79,10 @@ export const Button = styled.button`
   gap: 18px;
   // margin-top: 64px;
   // }
+
+
+&: hover{
+background: #255ee8;}
 `;
 
 export const ExperienceWrap = styled.div`

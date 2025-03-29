@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Wrap = styled.div`
   background-color: rgba(243, 243, 243, 1);
@@ -86,36 +86,5 @@ export const Select = styled.select`
     & select option {
       border-radius: 14px;
     }
-  }
-`;
-
-export const Button = styled.button`
-  display: block;
-  border-radius: 30px;
-  padding: 10px 20px;
-
-  background: var(--main-color--);
-  color: var(--text-color--);
-
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: -1%;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  &:hover {
-    border: 1px solid var(--main-color--);
-    background: rgba(16, 57, 49, 0.2);
-    color: var(--main-color--);
-  }
-
-  @media (min-width: 768px) {
-    border-radius: 30px;
-    background: var(--main-color--);
-    padding: 14px 40px;
-    font-size: 16px;
-    margin-top: 25px;
   }
 `;

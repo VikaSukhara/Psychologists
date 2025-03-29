@@ -8,11 +8,17 @@ import {
 } from "./PsychologistList.styled";
 import { useDispatch } from "react-redux";
 import { fetchData } from "../Psychologists_fetch/PsychologistsDef";
-// Імпортуй функцію
 
+import PsychologistCard from "../PsychologistCard/PsychologistCard";
+// Імпортуй функцію
 
 const PsychologistsList = () => {
   const [psychologists, setPsychologists] = useState(null);
+
+  const [limit, setLimit] = useState(3);
+  const [selected, setSelected] = useState("A to Z");
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchData().then((data) => setPsychologists(data));
@@ -27,11 +33,6 @@ const PsychologistsList = () => {
     "Show all",
   ];
 
-  const [limit, setLimit] = useState(3);
-  const [selected, setSelected] = useState("A to Z");
-
-  const dispatch = useDispatch();
-
   //   const handleSelect = event => {
   //     event.preventDefault();
   //     setSelected(event.target.value);
@@ -40,29 +41,36 @@ const PsychologistsList = () => {
   //   };
 
   return (
-    <Wrap>
-      <Container>
-        <SelectWrap>
-          <Label>
-            Filters
-            <Select
-              name="select"
-              id="position"
-              value={selected}
-              //   onChange={handleSelect}
-            >
-              <option selected> A to Z </option>
-              {options.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </Select>
-          </Label>
-        </SelectWrap>
-      </Container>
-    </Wrap>
+    <div>
+      <Wrap>
+        <Container>
+          <SelectWrap>
+            <Label>
+              Filters
+              <Select
+                name="select"
+                id="position"
+                value={selected}
+                //   onChange={handleSelect}
+              >
+                <option selected> A to Z </option>
+                {options.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </Select>
+            </Label>
+          </SelectWrap>
+        </Container>
+      </Wrap>
+      {psychologists?.map((psychologist) => (
+        <PsychologistCard psychologist={psychologist} />
+      ))}
+    </div>
   );
 };
 
 export default PsychologistsList;
+
+//

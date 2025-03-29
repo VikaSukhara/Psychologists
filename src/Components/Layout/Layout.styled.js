@@ -28,8 +28,6 @@ export const Container = styled.nav`
   padding: 0 128px;
 `;
 
-
-
 export const Logo = styled(NavLink)`
   display: none;
   color: var(--text-color--);
@@ -63,4 +61,43 @@ export const BtnContainer = styled.div`
   justify-content: flex-end;
   margin-left: auto;
   padding: 0;
+`;
+
+export const NavigationLink = styled(NavLink)`
+  text-decoration: none;
+  color: black;
+  position: relative;
+
+  &.active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 6px;
+    height: 6px;
+    background-color: blue;
+    border-radius: 50%;
+    transform: translateX(-50%);
+  }
+`;
+
+export const UserIcon = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  background: #3470ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const UserName = styled.h3`
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  color: #191a15;
+  margin-right: 28px;
 `;
