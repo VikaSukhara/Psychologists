@@ -12,6 +12,9 @@ import {
 } from "./LogIn.styled";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../redux/action";
+import { logIn } from "../redux/userSlice";
 
 const LogInSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -22,6 +25,7 @@ const LogInSchema = Yup.object().shape({
 });
 
 function LogIn({ toggleModal }) {
+  const dispatch = useDispatch();
   return (
     <div>
       <Button onClick={toggleModal}>
@@ -63,6 +67,7 @@ function LogIn({ toggleModal }) {
         validationSchema={LogInSchema}
         onSubmit={(values, { resetForm }) => {
           console.log("Form data", values);
+          dispatch(logIn(values));
           resetForm(); // Очищуємо форму
           toggleModal(); // Закриваємо модалку ✅
 

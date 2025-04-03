@@ -5,15 +5,19 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "./Components/redux/store";
+import { persistor, store } from "./Components/redux/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-    <Provider store={store}>  
-      {" "}
-      <App />
+    <BrowserRouter basename="/Psychologists">
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          {/* //PersistGate забезпечує завантаження збереженого стану перед рендерингом UI. */}
+
+          <App />
+        </PersistGate>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

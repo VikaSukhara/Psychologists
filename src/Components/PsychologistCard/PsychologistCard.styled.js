@@ -426,3 +426,9 @@ export const ButtonAppointment = styled.button`
     font-size: 16px;
   }
 `;
+
+export const Heart = styled.div`
+top: 24px;
+right: 24px;
+position:absolute;
+`

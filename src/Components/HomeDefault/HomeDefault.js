@@ -37,7 +37,7 @@ function HomeDefault() {
               psychologists.
             </H3>
           </WrapText>
-          <Button>
+          <Button to="/specialists">
             Get Started
             <StyledSVG
               width="15"

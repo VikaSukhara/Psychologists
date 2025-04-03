@@ -12,6 +12,7 @@ import * as yup from "yup";
 import { auth } from "../../firebase";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../redux/action";
+import { logIn } from "../redux/userSlice";
 
 let RegistrationSchema = yup.object().shape({
   name: yup
@@ -78,7 +79,7 @@ function Registration({ toggleModal }) {
 
             // Додаємо користувача в Redux Store
             dispatch(
-              loginUser({
+              logIn({
                 uid: user.uid,
                 name: values.name,
                 email: user.email,

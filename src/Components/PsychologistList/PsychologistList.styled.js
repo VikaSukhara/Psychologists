@@ -9,11 +9,11 @@ export const Wrap = styled.div`
 export const Container = styled.div`
   padding: 10px 10px;
   overflow: scroll;
-  height: 568px;
+  // height: 568px;
 
   @media (min-width: 768px) {
     padding: 40px 40px;
-    height: 736px;
+    // height: 736px;
   }
   @media (min-width: 1440px) {
     padding: 64px 128px 100px 128px;
@@ -87,4 +87,21 @@ export const Select = styled.select`
       border-radius: 14px;
     }
   }
+`;
+
+export const Button = styled.button`
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+  border-radius: 30px;
+  padding: 14px 48px;
+  width: 176px;
+  height: 48px;
+  background: #3470ff;
+
+  margin: 0 auto;
+  display: flex;
 `;

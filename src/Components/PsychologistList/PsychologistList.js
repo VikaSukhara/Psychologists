@@ -1,44 +1,48 @@
 import { useEffect, useState } from "react";
 import {
+  Button,
   Container,
   Label,
-  Select,
   SelectWrap,
   Wrap,
 } from "./PsychologistList.styled";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../Psychologists_fetch/PsychologistsDef";
 
 import PsychologistCard from "../PsychologistCard/PsychologistCard";
-// Імпортуй функцію
+import { filterAction } from "../redux/action";
+import {
+  getLoading,
+  getPsychologists,
+  selectPsychologists,
+} from "../redux/psychologistsSlice";
+import FilterSelect from "../FilterSelect";
+import { filterPsychologists } from "../../utils";
 
 const PsychologistsList = () => {
-  const [psychologists, setPsychologists] = useState(null);
-
-  const [limit, setLimit] = useState(3);
-  const [selected, setSelected] = useState("A to Z");
-
   const dispatch = useDispatch();
+  const [per_page, setPer_page] = useState(3);
+
+  const psychologists = useSelector(selectPsychologists);
+  const filter = useSelector((state) => state.filter.selectedfilter);
+
+  console.log("psychologists", psychologists);
+  // Використовуємо функцію filterPsychologists для фільтрації та сортування
+  const filteredPsychologists = filterPsychologists(psychologists, filter);
+  const filteredPsychologistsPerPage = filteredPsychologists.slice(0, per_page);
 
   useEffect(() => {
-    fetchData().then((data) => setPsychologists(data));
-  }, []);
+    dispatch(getLoading());
 
-  const options = [
-    "Z to A",
-    "Less than 10$",
-    "Greater than 10$",
-    "Popular",
-    "Not popular",
-    "Show all",
-  ];
+    fetchData().then((data) => dispatch(getPsychologists(data)));
+  }, [dispatch]);
 
-  //   const handleSelect = event => {
-  //     event.preventDefault();
-  //     setSelected(event.target.value);
-  //     dispatch(filtersNanyAction(event.target.value));
-  //     setLimit(3);
-  //   };
+  // Обробник для селекту
+  const handleSelect = (selectedOption) => {
+    console.log("selectedOption", selectedOption);
+    console.log("filter", filter);
+    dispatch(filterAction(selectedOption.label));
+  };
 
   return (
     <div>
@@ -47,30 +51,32 @@ const PsychologistsList = () => {
           <SelectWrap>
             <Label>
               Filters
-              <Select
-                name="select"
-                id="position"
-                value={selected}
-                //   onChange={handleSelect}
-              >
-                <option selected> A to Z </option>
-                {options.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </Select>
+              <FilterSelect onChange={handleSelect} />
             </Label>
           </SelectWrap>
+
+          {/* Перевірка на порожній список, якщо фільтрація нічого не знайшла */}
+          {filteredPsychologistsPerPage.length === 0 ? (
+            <p>No psychologists found</p>
+          ) : (
+            filteredPsychologistsPerPage.map((psychologist) => (
+              <PsychologistCard
+                psychologist={psychologist}
+                key={psychologist.id}
+              />
+            ))
+          )}
+
+          {filteredPsychologistsPerPage.length > 0 && // Масив не порожній
+            filteredPsychologistsPerPage.length % 3 === 0 && (
+              <Button type="button" onClick={() => setPer_page(per_page + 3)}>
+                Load more
+              </Button>
+            )}
         </Container>
       </Wrap>
-      {psychologists?.map((psychologist) => (
-        <PsychologistCard psychologist={psychologist} />
-      ))}
     </div>
   );
 };
 
 export default PsychologistsList;
-
-//

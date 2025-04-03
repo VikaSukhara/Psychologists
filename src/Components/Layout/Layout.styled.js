@@ -26,6 +26,19 @@ export const Container = styled.nav`
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 128px;
+   position: relative;
+    z-index: 10;
+
+`;
+export const HeaderLine = styled.hr`
+ position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 2px;
+  background: rgba(25, 26, 21, 0.1);
+  border: none;
+  margin: 0;
+  z-index: 0; // Щоб лінія була на задньому фоні
 `;
 
 export const Logo = styled(NavLink)`
@@ -36,11 +49,11 @@ export const Logo = styled(NavLink)`
   line-height: 28px;
   letter-spacing: -2%;
   text-align: left;
-
+  cursor: pointer;
   color: #3470ff;
 
   &:hover {
-    color: #def6e7;
+    color: rgb(29, 69, 162);
   }
 
   @media (min-width: 768px) {

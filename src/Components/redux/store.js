@@ -1,15 +1,39 @@
-import { devToolsEnhancer } from "@redux-devtools/extension";
-import { createStore } from "redux";
-import rootReducer from "./reducer";
+import { combineReducers } from "redux";
 
-export const initialState = {
-  isLoggin: false,
-  user: null,
+import { psychologistsReducer } from "./psychologistsSlice";
+import { userReducer } from "./userSlice";
+import { filteredReducer } from "./filtersReducer";
+
+import persistReducer from "redux-persist/es/persistReducer";
+import storage from "redux-persist/lib/storage"; // Використовуємо LocalStorage
+import persistStore from "redux-persist/es/persistStore";
+import { configureStore } from "@reduxjs/toolkit";
+import { favouriteReducer } from "./favouriteSlice";
+
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["favourite", "user"], // Тільки favourite буде зберігатися
 };
 
-const enhancer = devToolsEnhancer();
+const rootReducer = combineReducers({
+  psychologist: psychologistsReducer,
+  user: userReducer,
+  filter: filteredReducer,
+  favourite: favouriteReducer,
+});
 
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+// persistReducer() додає можливість збереження стану в локальному сховищі.
 
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      //функція, яка повертає набір стандартних middleware, які включає Redux Toolkit. Вона за замовчуванням додає redux-thunk та serializableCheck.
+      serializableCheck: false, // Вимикаємо перевірку серіалізації(нестандартні) для persist
+    }),
+});
 
-export const store = createStore(rootReducer, enhancer);
-
+export const persistor = persistStore(store);
+// persistStore() зберігає Redux-стан у LocalStorage.
