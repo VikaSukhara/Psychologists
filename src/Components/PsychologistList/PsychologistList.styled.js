@@ -43,12 +43,12 @@ export const Select = styled.select`
   border-radius: 10px;
   width: 100%;
   height: 40px;
-  background: var(--main-color--);
-  color: var(--text-color--);
+  background: var(--main-color);
+  color: var(--text-color);
 
   & option:checked {
     cursor: pointer;
-    color: var(--text-color--);
+    color: var(--text-color);
 
     font-size: 12px;
     font-weight: 500;
@@ -95,12 +95,12 @@ export const Button = styled.button`
   font-size: 16px;
   line-height: 125%;
   letter-spacing: -0.01em;
-  color: #fbfbfb;
+  color: var(--button-text);
   border-radius: 30px;
   padding: 14px 48px;
   width: 176px;
   height: 48px;
-  background: #3470ff;
+  background: var(--button-bg);
 
   margin: 0 auto;
   display: flex;

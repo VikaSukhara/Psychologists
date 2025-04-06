@@ -15,7 +15,6 @@ import {
 import * as Yup from "yup";
 
 const Appointment = ({ psychologist, toggleModal, id }) => {
-  console.log("id", id);
   const AppointmentSchema = Yup.object().shape({
     name: Yup.string().required("Required"),
     phone: Yup.number().min(8, "Too Short!").required("Required"),
@@ -51,7 +50,6 @@ const Appointment = ({ psychologist, toggleModal, id }) => {
         }}
         validationSchema={AppointmentSchema}
         onSubmit={(values, { resetForm }) => {
-          console.log("Form data", values);
           resetForm(); // Очищуємо форму
           toggleModal(); // Закриваємо модалку ✅
         }}

@@ -43,12 +43,12 @@ export const Select = styled.select`
   border-radius: 10px;
   width: 100%;
   height: 40px;
-  background: var(--main-color--);
-  color: var(--text-color--);
+  background: var(--main-color);
+  color: var(--text-color);
 
   & option:checked {
     cursor: pointer;
-    color: var(--text-color--);
+    color: var(--text-color);
 
     font-size: 12px;
     font-weight: 500;
@@ -94,8 +94,8 @@ export const Button = styled.button`
   border-radius: 30px;
   padding: 10px 20px;
 
-  background: var(--main-color--);
-  color: var(--text-color--);
+  background: var(--main-color);
+  color: var(--text-color);
 
   font-size: 12px;
   font-weight: 500;
@@ -106,14 +106,14 @@ export const Button = styled.button`
   margin-right: auto;
 
   &:hover {
-    border: 1px solid var(--main-color--);
+    border: 1px solid var(--main-color);
     background: rgba(16, 57, 49, 0.2);
-    color: var(--main-color--);
+    color: var(--main-color);
   }
 
   @media (min-width: 768px) {
     border-radius: 30px;
-    background: var(--main-color--);
+    background: var(--main-color);
     padding: 14px 40px;
     font-size: 16px;
     margin-top: 25px;
@@ -156,16 +156,6 @@ export const HeartButn = styled.button`
   }
 `;
 
-// export const HeartIcon = styled(Heart)`
-//   width: 10px;
-//   height: 10px;
-//   @media (min-width: 768px) {
-//     width: 16px;
-//     height: 16px;
-//   }
-// `;
-// export const StickIcon = styled(Stick)``;
-
 export const Ul = styled.ul`
   position: relative;
   display: flex;
@@ -189,7 +179,7 @@ export const Li = styled.li`
   flex-direction: row;
   margin-bottom: 32px;
   color: rgb(138, 138, 137);
-  background-color: #fbfbfb;
+  background-color: var( --button-text);
 
   @media (min-width: 768px) {
     font-size: 16px;
@@ -306,7 +296,7 @@ export const OnlineIconWrap = styled.div`
 `;
 
 export const TitleName = styled.h2`
-  color: var(--span-color--);
+  color: var(--span-color);
 
   font-size: 18px;
   line-height: 24px;
@@ -326,7 +316,7 @@ export const TitleName = styled.h2`
 `;
 
 export const SpanColour = styled.span`
-  color: var(--span-color--);
+  color: var(--span-color);
 
   font-size: 12px;
   font-weight: 600;
@@ -357,7 +347,7 @@ export const Paragraph = styled.div`
 `;
 
 export const Buttons = styled.button`
-  color: var(--span-color--);
+  color: var(--span-color);
   border: none;
 
   font-size: 12px;
@@ -399,7 +389,7 @@ export const ReviewerImg = styled.div`
   }
 `;
 export const ReviewerLetter = styled.span`
-  color: var(--span-color--);
+  color: var(--span-color);
 
   font-size: 16px;
   font-weight: 600;
@@ -410,9 +400,9 @@ export const ReviewerLetter = styled.span`
 export const ButtonAppointment = styled.button`
   display: block;
   border-radius: 15px;
-  background: var(--main-color--);
+  background: var(--main-color);
   padding: 10px 20px;
-  color: var(--text-color--);
+  color: var(--text-color);
 
   font-size: 12px;
   font-weight: 500;

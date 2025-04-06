@@ -10,11 +10,12 @@ import {
   P,
   StyledError,
 } from "./LogIn.styled";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../redux/action";
 import { logIn } from "../redux/userSlice";
+import { getFavouritesFromLocalStorage } from "../../utils/localStorageUtils";
+import { toast } from "react-toastify";
 
 const LogInSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -39,16 +40,16 @@ function LogIn({ toggleModal }) {
           <path
             d="M24 8L8 24"
             stroke="#191A15"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M8 8L24 24"
             stroke="#191A15"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </Button>
@@ -66,17 +67,31 @@ function LogIn({ toggleModal }) {
         }}
         validationSchema={LogInSchema}
         onSubmit={(values, { resetForm }) => {
-          console.log("Form data", values);
-          dispatch(logIn(values));
-          resetForm(); // Очищуємо форму
-          toggleModal(); // Закриваємо модалку ✅
-
           signInWithEmailAndPassword(auth, values.email, values.password)
             .then((userCredential) => {
               const user = userCredential.user;
-              console.log("User logged in:", user);
+
+              updateProfile(user, {
+                //функція Firebase, дозволяє доповнити або змінити інформацію про користувача після того, як він зареєструвався або увійшов.
+                displayName: values.name,
+              }).then(() => {
+                const favouritesList = getFavouritesFromLocalStorage(user.uid); // Отримуємо вподобані елементи
+                dispatch(
+                  logIn({
+                    uid: user.uid,
+                    name: user.displayName, // 🔄 Ми щойно встановили це
+                    email: user.email,
+
+                    favouritesList,
+                  })
+                );
+              });
+
+              resetForm(); // Очищуємо форму
+              toggleModal(); // Закриваємо модалку ✅
             })
             .catch((err) => {
+              toast.warn("Wrong email or password. Try again");
               console.log("Wrong email or password. Try again", err.message);
             });
         }}

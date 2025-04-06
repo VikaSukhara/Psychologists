@@ -1,26 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectFavourites } from "../redux/favouriteSlice";
 import PsychologistCard from "../PsychologistCard/PsychologistCard";
 import { useState } from "react";
-import {
-  Button,
-  Container,
-  Label,
-  Select,
-  SelectWrap,
-  Wrap,
-} from "../PsychologistList/PsychologistList.styled";
 import { filterAction } from "../redux/action";
-import { selectPsychologists } from "../redux/psychologistsSlice";
 import FilterSelect from "../FilterSelect";
-import { filterPsychologists } from "../../utils";
+import { filterPsychologists } from "../../utils/utils";
+import { Button, Container, Label, SelectWrap, Wrap } from "./Favourite.styled";
 
 const FavouriteComponent = () => {
   const [per_page, setPer_page] = useState(3);
   const dispatch = useDispatch();
 
-  const favouritedList = useSelector(selectFavourites);
+  // const favouritedList = useSelector(selectFavourites);
 
+  const favouritedList = useSelector((state) => state.user.favouritesList);
   const filter = useSelector((state) => state.filter.selectedfilter);
 
   const filteredPsychologists = filterPsychologists(favouritedList, filter);
@@ -52,7 +44,8 @@ const FavouriteComponent = () => {
             ))
           )}
 
-          {filteredPsychologistsPerPage.length > 0 && // Масив не порожній
+          {filteredPsychologists.length > 3 &&
+            filteredPsychologistsPerPage.length !== 0 && // Масив не порожній
             filteredPsychologistsPerPage.length % 3 === 0 && (
               <Button type="button" onClick={() => setPer_page(per_page + 3)}>
                 Load more

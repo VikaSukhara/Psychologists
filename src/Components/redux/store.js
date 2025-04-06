@@ -8,19 +8,18 @@ import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage"; // Використовуємо LocalStorage
 import persistStore from "redux-persist/es/persistStore";
 import { configureStore } from "@reduxjs/toolkit";
-import { favouriteReducer } from "./favouriteSlice";
+
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["favourite", "user"], // Тільки favourite буде зберігатися
+  whitelist: ["user"], // Тільки favourite буде зберігатися
 };
 
 const rootReducer = combineReducers({
   psychologist: psychologistsReducer,
   user: userReducer,
   filter: filteredReducer,
-  favourite: favouriteReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

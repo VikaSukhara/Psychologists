@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {
   Button,
   ButtonSignUp,
@@ -11,8 +11,8 @@ import { Formik, Form } from "formik";
 import * as yup from "yup";
 import { auth } from "../../firebase";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../redux/action";
 import { logIn } from "../redux/userSlice";
+import { toast } from "react-toastify";
 
 let RegistrationSchema = yup.object().shape({
   name: yup
@@ -43,16 +43,16 @@ function Registration({ toggleModal }) {
           <path
             d="M24 8L8 24"
             stroke="#191A15"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M8 8L24 24"
             stroke="#191A15"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </Button>
@@ -65,23 +65,38 @@ function Registration({ toggleModal }) {
         initialValues={{ name: "", email: "", password: "" }}
         validationSchema={RegistrationSchema}
         onSubmit={(values, { resetForm }) => {
-          console.log("submit is done");
-          resetForm(); // Очищуємо форму
-          toggleModal(); // Закриваємо модалку ✅
-
           createUserWithEmailAndPassword(
             auth,
             values.email,
             values.password
           ).then((userCredential) => {
             const user = userCredential.user;
-            console.log("User is registered:", user);
+            updateProfile(user, {
+              //функція Firebase, дозволяє доповнити або змінити інформацію про користувача після того, як він зареєструвався або увійшов.
+              displayName: values.name,
+            }).then(() => {
+              // Після оновлення профілю — логін
+              dispatch(
+                logIn({user:{
+                  uid: user.uid,
+                  name: user.displayName, // 🔄 Ми щойно встановили це
+                  email: user.email,
+                }})
+               
+              );
+            });
+
+            toast.success(
+              `You have successfully registered, log in to your account`
+            );
+            resetForm(); // Очищуємо форму
+            toggleModal(); // Закриваємо модалку ✅
 
             // Додаємо користувача в Redux Store
             dispatch(
               logIn({
                 uid: user.uid,
-                name: values.name,
+                name: user.displayName,
                 email: user.email,
               })
             );

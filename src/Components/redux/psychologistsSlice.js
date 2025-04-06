@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const psychologistsSlice = createSlice({
   name: "psychologists", // Ім'я слайсу
   initialState: {
-    // Початковий стан редюсера слайсу
     psychologistsList: [],
     isLoading: false,
   },

@@ -15,7 +15,7 @@ import Registration from "../Registration/Registration";
 import LogIn from "../LogIn/LogIn";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { logoutUser } from "../redux/action";
+
 import { logOut } from "../redux/userSlice";
 
 function Layout() {
@@ -23,6 +23,11 @@ function Layout() {
   const isLoggin = useSelector((state) => state.user.isLoggin);
 
   const user = useSelector((state) => state.user);
+  console.log("user", user);
+
+  const userName = useSelector((state) => state.user.user?.name);
+
+  console.log("userName", userName);
 
   const [isLogInOpen, setIsLogInOpen] = useState(false);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
@@ -73,10 +78,12 @@ function Layout() {
                     />
                   </svg>
                 </UserIcon>
-                <UserName>{user.name}</UserName>
+                <UserName>{userName}</UserName>
               </div>
               <NavBtn
-                onClick={() => dispatch(logOut())}
+                onClick={() => {
+                  dispatch(logOut());
+                }}
                 style={{ marginRight: "8px" }}
               >
                 Log Out

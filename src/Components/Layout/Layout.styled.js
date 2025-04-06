@@ -10,7 +10,8 @@ export const NavBtn = styled.button`
   padding: 0;
 
   &:hover {
-    background: #3470ff;
+    background: var(--button-bg);
+    color: var(--button-text);
   }
 `;
 
@@ -26,12 +27,11 @@ export const Container = styled.nav`
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 128px;
-   position: relative;
-    z-index: 10;
-
+  position: relative;
+  z-index: 10;
 `;
 export const HeaderLine = styled.hr`
- position: absolute;
+  position: absolute;
   left: 0;
   width: 100vw;
   height: 2px;
@@ -43,14 +43,13 @@ export const HeaderLine = styled.hr`
 
 export const Logo = styled(NavLink)`
   display: none;
-  color: var(--text-color--);
   font-size: 18px;
   font-weight: 400;
   line-height: 28px;
   letter-spacing: -2%;
   text-align: left;
   cursor: pointer;
-  color: #3470ff;
+  color: var(--main-color);
 
   &:hover {
     color: rgb(29, 69, 162);
@@ -100,7 +99,7 @@ export const UserIcon = styled.div`
   border-radius: 10px;
   width: 40px;
   height: 40px;
-  background: #3470ff;
+  background: var(--button-bg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,6 +110,6 @@ export const UserName = styled.h3`
   font-size: 16px;
   line-height: 125%;
   letter-spacing: -0.01em;
-  color: #191a15;
+  color: var(--heading-color);
   margin-right: 28px;
 `;

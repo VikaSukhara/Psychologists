@@ -17,7 +17,7 @@ import {
   selectPsychologists,
 } from "../redux/psychologistsSlice";
 import FilterSelect from "../FilterSelect";
-import { filterPsychologists } from "../../utils";
+import { filterPsychologists } from "../../utils/utils";
 
 const PsychologistsList = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,6 @@ const PsychologistsList = () => {
   const psychologists = useSelector(selectPsychologists);
   const filter = useSelector((state) => state.filter.selectedfilter);
 
-  console.log("psychologists", psychologists);
   // Використовуємо функцію filterPsychologists для фільтрації та сортування
   const filteredPsychologists = filterPsychologists(psychologists, filter);
   const filteredPsychologistsPerPage = filteredPsychologists.slice(0, per_page);
@@ -39,8 +38,6 @@ const PsychologistsList = () => {
 
   // Обробник для селекту
   const handleSelect = (selectedOption) => {
-    console.log("selectedOption", selectedOption);
-    console.log("filter", filter);
     dispatch(filterAction(selectedOption.label));
   };
 
