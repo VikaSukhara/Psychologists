@@ -48,7 +48,7 @@ const PsychologistCard = ({ psychologist }) => {
   const handleFavoriteClick = () => {
     if (!user) {
       toast.warn(
-        "Цей функціонал доступний лише для авторизованих користувачів!",
+        "This functionality is only available to authorized users!",
         {
           position: "top-right",
           autoClose: 5000,

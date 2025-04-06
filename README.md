@@ -15,5 +15,5 @@ react-hook-form & yup
 
 
 
-![alt text](image.png)
-
+- забув пароль
+- смс на телеграм про апоінтмент

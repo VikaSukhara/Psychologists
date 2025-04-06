@@ -5,9 +5,8 @@ export const NavBtn = styled.button`
   border: 1px solid rgba(25, 26, 21, 0.2);
   border-radius: 30px;
   padding: 14px 39px;
-  width: 124px;
+  width: 100%;
   height: 48px;
-  padding: 0;
 
   &:hover {
     background: var(--button-bg);

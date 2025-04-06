@@ -3,9 +3,11 @@ import * as Yup from "yup";
 
 import {
   Button,
+  ButtonForgot,
   ButtonLogIn,
   H2,
   Input,
+  InputPasswordWrap,
   Label,
   P,
   StyledError,
@@ -16,6 +18,9 @@ import { useDispatch } from "react-redux";
 import { logIn } from "../redux/userSlice";
 import { getFavouritesFromLocalStorage } from "../../utils/localStorageUtils";
 import { toast } from "react-toastify";
+import { useState } from "react";
+import { EyeButton } from "../Registration/Registration.styled";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const LogInSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -25,7 +30,8 @@ const LogInSchema = Yup.object().shape({
     .required("Required"),
 });
 
-function LogIn({ toggleModal }) {
+function LogIn({ toggleModal, openForgotPassword }) {
+  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   return (
     <div>
@@ -92,7 +98,7 @@ function LogIn({ toggleModal }) {
             })
             .catch((err) => {
               toast.warn("Wrong email or password. Try again");
-              console.log("Wrong email or password. Try again", err.message);
+              console.log(err.message);
             });
         }}
       >
@@ -100,19 +106,34 @@ function LogIn({ toggleModal }) {
           <Label>
             <Input type="email" name="email" placeholder="Enter your email" />
             <StyledError name="email" component="div" />
-          </Label>
-
+          </Label>{" "}
           <Label>
             {" "}
-            <Input
-              type="password"
-              name="password"
-              placeholder="Enter your password"
-            />
+            <InputPasswordWrap>
+              <Input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Enter your password"
+              />
+              <EyeButton
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+              >
+                {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
+              </EyeButton>
+            </InputPasswordWrap>
             <StyledError name="password" component="div" />
           </Label>
-
           <ButtonLogIn type="submit">Log In</ButtonLogIn>
+          <ButtonForgot
+            type="button"
+            onClick={() => {
+              toggleModal(); // закриває модалку логіну
+              openForgotPassword();
+            }}
+          >
+            Forgot Password
+          </ButtonForgot>
         </Form>
       </Formik>
     </div>

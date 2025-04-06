@@ -34,7 +34,6 @@ export const Button = styled.button`
 export const ButtonSignUp = styled.button`
   border-radius: 30px;
   padding: 16px 189px;
-  width: 438px;
   height: 52px;
   background: var(--button-bg);
   margin-top: 40px;
@@ -69,4 +68,44 @@ export const Input = styled(Field)`
 export const StyledError = styled(ErrorMessage)`
   color: red;
   font-size: 15px;
+`;
+
+export const InputWrapper = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+export const PasswordInput = styled.input`
+  width: 100%;
+  height: 52px;
+  padding: 12px 40px 12px 12px; // правий padding під іконку
+
+  box-sizing: border-box;
+  border: var(--border);
+  border-radius: 12px;
+  padding: 18px 18px;
+
+  &::placeholder {
+    color: var(--span-color--);
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+`;
+
+export const EyeButton = styled.button`
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

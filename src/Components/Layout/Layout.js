@@ -17,25 +17,34 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 import { logOut } from "../redux/userSlice";
+import ForgotPassword from "../ForgotPassword/ForgotPassword";
 
 function Layout() {
   const dispatch = useDispatch();
+
   const isLoggin = useSelector((state) => state.user.isLoggin);
-
-  const user = useSelector((state) => state.user);
-  console.log("user", user);
-
   const userName = useSelector((state) => state.user.user?.name);
 
-  console.log("userName", userName);
-
   const [isLogInOpen, setIsLogInOpen] = useState(false);
+  const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+
+  const openForgotPassword = () => {
+    setIsLogInOpen(false);
+    setTimeout(() => {
+      setIsForgotPasswordOpen(true);
+    }, 100); // або без setTimeout, якщо немає анімацій
+  };
+
+  const toggleModalForgotPassword = () => {
+    setIsForgotPasswordOpen(!isForgotPasswordOpen);
+  };
 
   const toggleModalLogIn = () => {
     setIsLogInOpen(!isLogInOpen);
   };
-  const ToggleModalRegistration = () => {
+
+  const toggleModalRegistration = () => {
     setIsRegistrationOpen(!isRegistrationOpen);
   };
 
@@ -114,16 +123,28 @@ function Layout() {
         )}
         {isLogInOpen && (
           <Modal isOpen={isLogInOpen} toggleModal={toggleModalLogIn}>
-            <LogIn toggleModal={toggleModalLogIn} />
+            <LogIn
+              toggleModal={toggleModalLogIn}
+              openForgotPassword={openForgotPassword}
+            />
+          </Modal>
+        )}
+
+        {isForgotPasswordOpen && (
+          <Modal
+            isOpen={isForgotPasswordOpen}
+            toggleModal={toggleModalForgotPassword}
+          >
+            <ForgotPassword toggleModal={toggleModalForgotPassword} />
           </Modal>
         )}
 
         {isRegistrationOpen && (
           <Modal
             isOpen={isRegistrationOpen}
-            toggleModal={ToggleModalRegistration}
+            toggleModal={toggleModalRegistration}
           >
-            <Registration toggleModal={ToggleModalRegistration} />
+            <Registration toggleModal={toggleModalRegistration} />
           </Modal>
         )}
       </Nav>

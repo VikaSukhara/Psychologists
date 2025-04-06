@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+export const StyledSVG = styled.svg`
+  margin-left: 18px;
+`;
 
 export const Section = styled.section`
   max-width: 1440px;
@@ -84,6 +87,12 @@ export const Button = styled(Link)`
 
 &: hover{
 background: #255ee8;}
+
+&:hover ${StyledSVG} {
+    transform: rotate(52deg);
+    transition: transform 0.3s ease;
+  }
+
 `;
 
 export const ExperienceWrap = styled.div`
@@ -131,12 +140,7 @@ export const Img = styled.img`
   // }
 `;
 
-export const StyledSVG = styled.svg`
-  margin-left: 18px;
-  &:hover {
-    transform: rotate(52deg);
-  }
-`;
+
 
 // export const GetStartLink = styled(Link)`
 //   font-weight: 700;

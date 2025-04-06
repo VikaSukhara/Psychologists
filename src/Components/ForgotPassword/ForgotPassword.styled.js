@@ -1,14 +1,18 @@
 import styled from "styled-components";
-import { Field, ErrorMessage } from "formik";
+import { Field, ErrorMessage , Form} from "formik";
+
+
+
 
 export const H2 = styled.h2`
+  text-align: center;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 40px;
   line-height: 120%;
   letter-spacing: -0.02em;
   color: var(--heading-color);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;
 
 export const P = styled.p`
@@ -21,6 +25,21 @@ export const P = styled.p`
 `;
 
 export const Button = styled.button`
+  border-radius: 30px;
+
+  width: 438px;
+  height: 52px;
+
+  margin-top: 40px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  background: var(--button-bg);
+  color: #fbfbfb;
+`;
+export const ButtonCross = styled.button`
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 40px;
@@ -32,24 +51,15 @@ export const Button = styled.button`
   top: 20px;
 `;
 
-export const ButtonLogIn = styled.button`
-  border-radius: 30px;
-  padding: 16px 196px;
-
-  height: 52px;
-  background: var(--button-bg);
-  margin-top: 40px;
-
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 125%;
-  letter-spacing: -0.01em;
-  color: #fbfbfb;
-`;
-
+export const StyledForm = styled(Form)`
+display: flex;
+flex-direction: column;
+align-items: center;
+gap:15px;
+`
 export const Label = styled.label``;
 export const Input = styled(Field)`
-  width: 100%;
+  width: 438px;
   height: 52px;
   box-sizing: border-box;
   border: var(--border);
@@ -76,23 +86,4 @@ export const ButtonForgot = styled.button`
   &: hover {
     color: rgb(22, 91, 251);
   }
-`;
-
-export const InputPasswordWrap = styled.div`
-  position: relative;
-  width: 100%;
-`;
-
-export const EyeButton = styled.button`
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
