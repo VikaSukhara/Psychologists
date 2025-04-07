@@ -41,8 +41,8 @@ export const H1 = styled.h1`
   margin-bottom: 20px;
 `;
 export const HighlightedWord = styled.span`
-font-style: italic;
-color: #3470ff;
+  font-style: italic;
+  color: #3470ff;
 `;
 export const H3 = styled.h3`
   font-size: 20px;
@@ -55,13 +55,13 @@ export const H3 = styled.h3`
     font-size: 25px;
   }
   @media (min-width: 1440px) {
-font-family: var(--font-family);
-font-weight: 500;
-font-size: 18px;
-line-height: 133%;
-letter-spacing: -0.02em;
-color: #191a15;
-width: 480px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 133%;
+    letter-spacing: -0.02em;
+    color: #191a15;
+    width: 480px;
   }
 `;
 
@@ -80,19 +80,21 @@ export const Button = styled(Link)`
   // @media (min-width: 1440px) {
   width: 230px;
   height: 60px;
-  gap: 18px;
+  gap: 10px;
   // margin-top: 64px;
   // }
 
+  transition: var(--button-transition); /* Плавний перехід */
 
-&: hover{
-background: #255ee8;}
-
-&:hover ${StyledSVG} {
-    transform: rotate(52deg);
-    transition: transform 0.3s ease;
+  &: hover {
+    background: #255ee8;
+    transform: scale(var(--button-scale));; /* Збільшення на 5% */
   }
 
+  &:hover ${StyledSVG} {
+    transform: rotate(52deg);
+    transition: var(--button-transition);
+  }
 `;
 
 export const ExperienceWrap = styled.div`
@@ -139,8 +141,6 @@ export const Img = styled.img`
   height: 526px;
   // }
 `;
-
-
 
 // export const GetStartLink = styled(Link)`
 //   font-weight: 700;

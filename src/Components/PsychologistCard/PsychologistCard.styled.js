@@ -163,7 +163,8 @@ export const Ul = styled.ul`
   align-items: center;
   flex-wrap: nowrap;
 `;
-export const Li = styled.li`
+
+export const ForHoverCongtainer = styled.div`
   gap: 22px;
   position: relative;
 
@@ -179,7 +180,7 @@ export const Li = styled.li`
   flex-direction: row;
   margin-bottom: 32px;
   color: rgb(138, 138, 137);
-  background-color: var( --button-text);
+  background-color: var(--button-text);
 
   @media (min-width: 768px) {
     font-size: 16px;
@@ -195,6 +196,13 @@ export const Li = styled.li`
     line-height: 24px;
     border-radius: 24px;
     padding: 24px 24px;
+  }
+
+  transition: transform 0.5s ease-out;
+
+  &:hover {
+    transform: scale(var(--button-scale));
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -364,6 +372,12 @@ export const Buttons = styled.button`
     font-weight: 600;
     line-height: 24px;
   }
+
+  transition: var(--button-transition); /* Плавний перехід */
+
+  &:hover {
+    transform: scale(var(--button-scale)); /* Збільшення на 5% */
+  }
 `;
 
 export const RatingWrap = styled.div`
@@ -418,7 +432,7 @@ export const ButtonAppointment = styled.button`
 `;
 
 export const Heart = styled.div`
-top: 24px;
-right: 24px;
-position:absolute;
-`
+  top: 24px;
+  right: 24px;
+  position: absolute;
+`;

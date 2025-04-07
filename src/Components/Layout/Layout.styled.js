@@ -8,9 +8,15 @@ export const NavBtn = styled.button`
   width: 100%;
   height: 48px;
 
+  transition: background 0.3s ease; /* Плавний перехід */
+  transition: color 0.3s ease; /* Плавний перехід */
+
+  transition: var(--button-transition); /* Плавний перехід */
+
   &:hover {
     background: var(--button-bg);
     color: var(--button-text);
+    transform: scale(var(--button-scale));; /* Збільшення на 5% */
   }
 `;
 
@@ -50,8 +56,11 @@ export const Logo = styled(NavLink)`
   cursor: pointer;
   color: var(--main-color);
 
+  transition: var(--button-transition); /* Плавний перехід */
+
   &:hover {
     color: rgb(29, 69, 162);
+    transform: scale(var(--button-scale));; /* Збільшення на 5% */
   }
 
   @media (min-width: 768px) {
@@ -78,6 +87,12 @@ export const NavigationLink = styled(NavLink)`
   text-decoration: none;
   color: black;
   position: relative;
+  transition: var(--button-transition); /* Плавний перехід */
+
+  &:hover {
+    transform: scale(1.08); /* Збільшення на 5% */
+    font-size: 19;
+  }
 
   &.active::after {
     content: "";

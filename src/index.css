@@ -1,27 +1,25 @@
-
 :root {
   --font-family: "Inter", sans-serif;
   --text-color: rgb(251, 251, 251);
-  --main-color: #3470ff;;
-  --span-color:  #191a15;
-  --button-bg: #3470ff;; /* фон кнопки */
-  --button-text: #fbfbfb;; /*/ текст кнопки */
+  --main-color: #3470ff;
+  --span-color: #191a15;
+  --button-bg: #3470ff; /* фон кнопки */
+  --button-text: #fbfbfb; /*/ текст кнопки */
   --heading-color: #191a15; /*колір заголовків -чорний */
   --paragraph-color: rgba(25, 26, 21, 0.5); /*колір параграфіи*/
 
+  --border: 1px solid rgba(17, 16, 28, 0.1); /* колір бордерів */
 
-  --border: 1px solid rgba(17, 16, 28, 0.1);; /* колір бордерів */
-
+  --button-transition: transform 0.3s ease;
+  --button-scale: 1.05;
 }
-
-
 
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Inter", sans-serif;
-  background-color:  #f3f3f3;
+  background-color: #f3f3f3;
 }
 
 code {

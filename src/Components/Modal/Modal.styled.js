@@ -8,8 +8,14 @@ export const Backdrop = styled.div`
   background: rgba(0, 0, 0, 0.5); /* Напівпрозорий чорний фон */
   display: flex;
   justify-content: center;
-  align-items: center; /* Центрує модалку */
-  z-index: 1000; /* Забезпечує, щоб бекдроп був поверх іншого контенту */
+  align-items: center;
+  z-index: 1000;
+
+
+  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)}; /* Плавно змінюється прозорість */
+  visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")}; /* Використовуємо visibility для зменшення помилок */
+  transition: opacity 0.8s ease, visibility 0s 0.8s; /* Плавна зміна opacity, delay для visibility */
+
 `;
 
 /* Стилі для контенту модалки */
@@ -19,6 +25,32 @@ export const ModalContent = styled.div`
   position: relative;
   border-radius: 30px;
   width: 599px;
-  // height: 579px;
-      max-height: 859px;
+  max-height: 859px;
+
+  transform: translateY(-50px); /* Початкова позиція модалки знизу */
+  transition: transform 0.8s ease; /* Плавне переміщення */
+  
+  ${({ isOpen }) => isOpen && `transform: translateY(0);`} /* Позиція модалки при відкритті */
+
 `;
+
+
+
+
+// opacity: 0; /* Початкове значення opacity */
+// transition: opacity 0.3s ease-in-out;
+
+// ${({ isOpen }) => isOpen && `opacity: 1;`} /* Зміна opacity на 1, коли модалка відкрита */
+
+
+
+
+
+  // transform: translateY(-50px); /* Початкова позиція модалки знизу */
+  // transition: var(--button-transition); /* Плавне переміщення */
+
+  // ${(props) =>
+  //   props.isOpen &&
+  //   `
+  //   transform: translateY(0); /* Позиція модалки при відкритті */
+  // `}

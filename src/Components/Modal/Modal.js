@@ -27,10 +27,11 @@ function Modal({ isOpen, toggleModal, children }) {
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
-    <Backdrop className="backdrop" onClick={onClickBackdrop}>
+    <Backdrop className="backdrop" onClick={onClickBackdrop} isOpen={isOpen}>
       <ModalContent
         className="modal-content"
         onClick={(e) => e.stopPropagation()}
+        isOpen={isOpen}
       >
         {/* Ця функція зупиняє подальше спливання події, тобто не дозволяє
         батьківським елементам теж отримати цю подію. Якщо клікнути на

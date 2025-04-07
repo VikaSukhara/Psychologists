@@ -43,6 +43,11 @@ export const ButtonSignUp = styled.button`
   line-height: 125%;
   letter-spacing: -0.01em;
   color: var(--button-text);
+  transition: var(--button-transition); /* Плавний перехід */
+
+  &: hover {
+    transform: scale(var(--button-scale));; /* Збільшення на 5% */
+  }
 `;
 
 export const Label = styled.label``;
@@ -73,27 +78,6 @@ export const StyledError = styled(ErrorMessage)`
 export const InputWrapper = styled.div`
   position: relative;
   width: 100%;
-`;
-
-export const PasswordInput = styled.input`
-  width: 100%;
-  height: 52px;
-  padding: 12px 40px 12px 12px; // правий padding під іконку
-
-  box-sizing: border-box;
-  border: var(--border);
-  border-radius: 12px;
-  padding: 18px 18px;
-
-  &::placeholder {
-    color: var(--span-color--);
-
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: 0%;
-    text-align: left;
-  }
 `;
 
 export const EyeButton = styled.button`

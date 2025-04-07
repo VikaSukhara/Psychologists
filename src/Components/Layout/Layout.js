@@ -24,6 +24,8 @@ function Layout() {
 
   const isLoggin = useSelector((state) => state.user.isLoggin);
   const userName = useSelector((state) => state.user.user?.name);
+  const user = useSelector((state) => state.user);
+  console.log("user", user);
 
   const [isLogInOpen, setIsLogInOpen] = useState(false);
   const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);

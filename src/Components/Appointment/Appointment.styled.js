@@ -5,9 +5,9 @@ import { Form as FormikForm } from "formik";
 // Стилізований компонент для форми
 export const FormStyled = styled(FormikForm)`
   display: flex;
-//   flex-direction: column;
+  //   flex-direction: column;
   gap: 18px;
-   max-width: 400px;
+  max-width: 400px;
 
   /* Прибирає останній відступ у формі */
   & > *:last-child {
@@ -35,20 +35,18 @@ export const P = styled.p`
 `;
 
 export const Img = styled.img`
-border-radius: 15px;
-width: 44px;
-height: 44px;
-background: #e0e0e0, url("path_to_image");
+  border-radius: 15px;
+  width: 44px;
+  height: 44px;
+  background: #e0e0e0, url("path_to_image");
 `;
 
 export const PsychologistWrap = styled.div`
-display: flex;
-align-items: center;
-gap: 14px;
-margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 40px;
 `;
-
-
 
 export const Button = styled.button`
   font-family: var(--font-family);
@@ -75,9 +73,13 @@ export const ButtonLogIn = styled.button`
   line-height: 125%;
   letter-spacing: -0.01em;
   color: var(--button-text);
+
+  transition: var(--button-transition); /* Плавний перехід */
+
+  &:hover {
+    transform: scale(var(--button-scale));; /* Збільшення на 5% */
+  }
 `;
-
-
 
 export const Label = styled.label``;
 export const Input = styled(Field)`
@@ -88,7 +90,6 @@ export const Input = styled(Field)`
   border-radius: 12px;
   padding: 18px 18px;
 
-
   flex: 1;
   outline: none;
   transition: border 0.3s;
@@ -96,8 +97,6 @@ export const Input = styled(Field)`
   &:focus {
     border-color: #007bff;
   }
-
-
 
   &::placeholder {
     color: var(--span-color--);
@@ -114,7 +113,6 @@ export const StyledError = styled(ErrorMessage)`
   color: red;
   font-size: 15px;
 `;
-
 
 export const InputAria = styled(Field)`
   width: 270px;
@@ -146,15 +144,12 @@ export const InputAria = styled(Field)`
   }
 
   @media (min-width: 768px) {
-  width: 472px;
+    width: 472px;
     &::placeholder {
       transform: translateY(-30px);
     }
   }
 `;
-
-
-
 
 export const InputContainers = styled.div`
   display: flex;

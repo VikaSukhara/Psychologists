@@ -7,7 +7,6 @@ import {
   P,
   StyledError,
   InputWrapper,
-  PasswordInput,
   EyeButton,
 } from "./Registration.styled";
 import { Formik, Form } from "formik";
@@ -82,11 +81,9 @@ function Registration({ toggleModal }) {
                 // Після оновлення профілю — логін
                 dispatch(
                   logIn({
-                    user: {
-                      uid: user.uid,
-                      name: user.displayName, // 🔄 Ми щойно встановили це
-                      email: user.email,
-                    },
+                    uid: user.uid,
+                    name: user.displayName, // 🔄 Ми щойно встановили це
+                    email: user.email,
                   })
                 );
               });
@@ -125,7 +122,7 @@ function Registration({ toggleModal }) {
           </label>{" "}
           <label>
             <InputWrapper>
-              <PasswordInput
+              <Input
                 name="password"
                 placeholder="Enter your password"
                 type={showPassword ? "text" : "password"}

@@ -45,6 +45,12 @@ export const ButtonLogIn = styled.button`
   line-height: 125%;
   letter-spacing: -0.01em;
   color: #fbfbfb;
+
+  transition: var(--button-transition); /* Плавний перехід */
+
+  &:hover {
+    transform: scale(var(--button-scale));-button-scale));; /* Збільшення на 5% */
+  }
 `;
 
 export const Label = styled.label``;
@@ -73,8 +79,11 @@ export const StyledError = styled(ErrorMessage)`
 `;
 
 export const ButtonForgot = styled.button`
+  transition: var(--button-transition); /* Плавний перехід */
+
   &: hover {
     color: rgb(22, 91, 251);
+    transform: scale(var(--button-scale)); /* Збільшення на 5% */
   }
 `;
 
