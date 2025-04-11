@@ -46,3 +46,11 @@ export const NavBtn = styled.button`
   height: 48px;
   margin-bottom: 15px;
 `;
+
+export const ConditionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
