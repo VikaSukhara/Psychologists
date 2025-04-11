@@ -1,22 +1,27 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { IoMenuOutline } from "react-icons/io5";
 
 export const NavBtn = styled.button`
-  border: 1px solid rgba(25, 26, 21, 0.2);
-  border-radius: 30px;
-  padding: 14px 39px;
-  width: 100%;
-  height: 48px;
+  display: none;
+  @media (min-width: 1440px) {
+    display: block;
+    border: 1px solid rgba(25, 26, 21, 0.2);
+    border-radius: 30px;
+    padding: 14px 39px;
+    width: 100%;
+    height: 48px;
 
-  transition: background 0.3s ease; /* Плавний перехід */
-  transition: color 0.3s ease; /* Плавний перехід */
+    transition: background 0.3s ease; /* Плавний перехід */
+    transition: color 0.3s ease; /* Плавний перехід */
 
-  transition: var(--button-transition); /* Плавний перехід */
+    transition: var(--button-transition); /* Плавний перехід */
 
-  &:hover {
-    background: var(--button-bg);
-    color: var(--button-text);
-    transform: scale(var(--button-scale));; /* Збільшення на 5% */
+    &:hover {
+      background: var(--button-bg);
+      color: var(--button-text);
+      transform: scale(var(--button-scale)); /* Збільшення на 5% */
+    }
   }
 `;
 
@@ -24,19 +29,24 @@ export const Nav = styled.nav`
   padding: 24px 0;
 `;
 
-export const Container = styled.nav`
+export const Container = styled.div`
   display: flex;
   flex-direction: row;
+  padding: 0 20px;
 
   align-items: center;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 128px;
-  position: relative;
+  justify-content: space-between;
+
   z-index: 10;
+  @media (min-width: 1440px) {
+    padding: 0 128px;
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+  }
 `;
 export const HeaderLine = styled.hr`
-  position: absolute;
+  // position: absolute;
   left: 0;
   width: 100vw;
   height: 2px;
@@ -47,7 +57,6 @@ export const HeaderLine = styled.hr`
 `;
 
 export const Logo = styled(NavLink)`
-  display: none;
   font-size: 18px;
   font-weight: 400;
   line-height: 28px;
@@ -60,7 +69,7 @@ export const Logo = styled(NavLink)`
 
   &:hover {
     color: rgb(29, 69, 162);
-    transform: scale(var(--button-scale));; /* Збільшення на 5% */
+    transform: scale(var(--button-scale)); /* Збільшення на 5% */
   }
 
   @media (min-width: 768px) {
@@ -76,18 +85,33 @@ export const Logo = styled(NavLink)`
   }
 `;
 
+export const BurgerMenuBtn = styled(IoMenuOutline)`
+  width: 20px;
+  height: 20px;
+  @media (min-width: 1440px) {
+    display: none;
+  }
+`;
+
 export const BtnContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-left: auto;
-  padding: 0;
+  display: none;
+  @media (min-width: 1440px) {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+    padding: 0;
+  }
 `;
 
 export const NavigationLink = styled(NavLink)`
-  text-decoration: none;
-  color: black;
-  position: relative;
-  transition: var(--button-transition); /* Плавний перехід */
+  display: none;
+  @media (min-width: 1440px) {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    position: relative;
+    transition: var(--button-transition); /* Плавний перехід */
+  }
 
   &:hover {
     transform: scale(1.08); /* Збільшення на 5% */

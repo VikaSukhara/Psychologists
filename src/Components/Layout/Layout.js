@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import {
   BtnContainer,
+  BurgerMenuBtn,
   Container,
   HeaderLine,
   Logo,
@@ -18,6 +19,7 @@ import { useState } from "react";
 
 import { logOut } from "../redux/userSlice";
 import ForgotPassword from "../ForgotPassword/ForgotPassword";
+import SideBarMenu from "../SideBar/SideBar";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -30,6 +32,7 @@ function Layout() {
   const [isLogInOpen, setIsLogInOpen] = useState(false);
   const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
 
   const openForgotPassword = () => {
     setIsLogInOpen(false);
@@ -50,12 +53,21 @@ function Layout() {
     setIsRegistrationOpen(!isRegistrationOpen);
   };
 
+  const toggleBurgerMenu = () => {
+    setIsBurgerMenuOpen(!isBurgerMenuOpen);
+  };
+
+  const openRegistrationModal = () => setIsRegistrationOpen(true);
+  const openLogInModal = () => setIsLogInOpen(true);
+
   return (
     <div>
       <Nav>
         {isLoggin ? (
           <Container>
             <Logo to="/">Psychologists</Logo>
+
+            <BurgerMenuBtn />
             <NavigationLink style={{ marginRight: "40px" }} to="/">
               {" "}
               Home
@@ -105,6 +117,14 @@ function Layout() {
           <Container>
             {" "}
             <Logo to="/">Psychologists</Logo>
+            <BurgerMenuBtn onClick={() => toggleBurgerMenu()} />
+            {isBurgerMenuOpen && (
+              <SideBarMenu
+                toggleBurgerMenu={toggleBurgerMenu}
+                onOpenLogIn={openLogInModal}
+                onOpenRegistration={openRegistrationModal}
+              />
+            )}
             <NavigationLink style={{ marginRight: "40px" }} to="/">
               Home
             </NavigationLink>

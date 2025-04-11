@@ -4,41 +4,56 @@ import { Field, ErrorMessage } from "formik";
 export const H2 = styled.h2`
   font-family: var(--font-family);
   font-weight: 500;
-  font-size: 40px;
-  line-height: 120%;
-  letter-spacing: -0.02em;
-  color: var(--heading-color);
-  margin-bottom: 20px;
+  font-size: 25px;
+  margin-bottom: 10px;
+
+  @media (min-width: 1440px) {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+  }
 `;
 
 export const P = styled.p`
+  font-size: 14px;
+  margin-bottom: 20px;
+
   font-family: var(--font-family);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 125%;
-  color: var(--paragraph-color);
-  margin-bottom: 40px;
+  @media (min-width: 1440px) {
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--paragraph-color);
+    margin-bottom: 40px;
+  }
 `;
 
 export const Button = styled.button`
   font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 40px;
-  line-height: 120%;
-  letter-spacing: -0.02em;
-  color: var(--span-color: );
   position: absolute;
-  right: 20px;
-  top: 20px;
+  color: var(--span-color: );
+  right: 10px;
+  top: 10px;
+
+  @media (min-width: 1440px) {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+
+    right: 20px;
+    top: 20px;
+  }
 `;
 
 export const ButtonLogIn = styled.button`
-  border-radius: 30px;
-  padding: 16px 196px;
-
-  height: 52px;
   background: var(--button-bg);
-  margin-top: 40px;
+  margin-top: 30px;
+  border-radius: 25px;
+  height: 52px;
 
   font-weight: 500;
   font-size: 16px;
@@ -46,21 +61,39 @@ export const ButtonLogIn = styled.button`
   letter-spacing: -0.01em;
   color: #fbfbfb;
 
+
+
+
+
+    @media (min-width: 1440px) {
+    border-radius: 30px;
+    padding: 16px 196px;
+    margin-top: 40px;
+}
+
   transition: var(--button-transition); /* Плавний перехід */
 
   &:hover {
     transform: scale(var(--button-scale));-button-scale));; /* Збільшення на 5% */
   }
-`;
+    `;
 
 export const Label = styled.label``;
 export const Input = styled(Field)`
-  width: 100%;
-  height: 52px;
   box-sizing: border-box;
   border: var(--border);
   border-radius: 12px;
-  padding: 18px 18px;
+
+  width: 100%;
+  height: 32px;
+
+  padding: 15px 15px;
+
+  @media (min-width: 1440px) {
+    width: 100%;
+    height: 52px;
+    padding: 18px 18px;
+  }
 
   &::placeholder {
     color: var(--span-color--);

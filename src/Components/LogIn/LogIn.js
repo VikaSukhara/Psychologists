@@ -115,6 +115,7 @@ function LogIn({ toggleModal, openForgotPassword }) {
                 name="password"
                 placeholder="Enter your password"
               />
+
               <EyeButton
                 type="button"
                 onClick={() => setShowPassword((prev) => !prev)}

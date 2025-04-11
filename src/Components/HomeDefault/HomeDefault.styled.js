@@ -5,12 +5,18 @@ export const StyledSVG = styled.svg`
 `;
 
 export const Section = styled.section`
-  max-width: 1440px;
+  max-width: 320px;
   margin: 0 auto;
-  padding: 0 128px;
+   padding: 25px 0;
+  @media (min-width: 1440px) {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 128px;
+  }
 `;
 export const Wrap = styled.div`
-padding: 78px 0 100px 0;
+  @media (min-width: 1440px) {
+    padding: 78px 0 100px 0;
     display: flex;
     flex-direction: row;
     position: relative;
@@ -20,25 +26,28 @@ padding: 78px 0 100px 0;
 `;
 
 export const WrapText = styled.div`
-  // padding: 50px 30px;
-  width: 595px;
-  height: 438px;
+  @media (min-width: 1440px) {
+    width: 595px;
+    height: 438px;
+  }
 `;
 
 export const H1 = styled.h1`
-  // font-size: 30px;
-  // font-weight: 500;
-  // line-height: 40px;
-  // letter-spacing: -3%;
-  // text-align: left;
-  // margin-bottom: 28px;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: -3%;
+  text-align: left;
+  margin-bottom: 28px;
 
-  // @media (min-width: 768px) {
-  //   font-size: 50px;
-  // }
-  font-size: 70px;
-  line-height: 70px;
-  margin-bottom: 20px;
+  @media (min-width: 768px) {
+    font-size: 50px;
+  }
+  @media (min-width: 1440px) {
+    font-size: 70px;
+    line-height: 70px;
+    margin-bottom: 20px;
+  }
 `;
 export const HighlightedWord = styled.span`
   font-style: italic;
@@ -72,23 +81,24 @@ export const Button = styled(Link)`
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  // width: 190px;
-  // height: 50px;
+   width: 190px;
+   height: 50px;
   border: 1px solid rgba(251, 251, 251, 0.4);
   background: #3470ff;
+  margin:50px auto;
 
-  // @media (min-width: 1440px) {
+  @media (min-width: 1440px) {
   width: 230px;
   height: 60px;
   gap: 10px;
-  // margin-top: 64px;
-  // }
+   margin-top: 64px;
+  }
 
   transition: var(--button-transition); /* Плавний перехід */
 
   &: hover {
     background: #255ee8;
-    transform: scale(var(--button-scale));; /* Збільшення на 5% */
+    transform: scale(var(--button-scale)); /* Збільшення на 5% */
   }
 
   &:hover ${StyledSVG} {
@@ -98,7 +108,8 @@ export const Button = styled(Link)`
 `;
 
 export const ExperienceWrap = styled.div`
-  // display: none;
+  display: none;
+  @media (min-width: 1440px) {
   position: absolute;
   bottom: 153px;
   right: 254px;
@@ -113,7 +124,7 @@ export const ExperienceWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  // }
+  }
 `;
 
 export const ExperienceText = styled.p`
@@ -131,15 +142,16 @@ export const ExperienceNumber = styled.p`
 `;
 
 export const Img = styled.img`
-  // @media (min-width: 1440px) {
-  display: block;
-  width: 699px;
-  margin-right: 0;
-  margin-left: auto;
-  border-radius: 10px;
-  width: 464px;
-  height: 526px;
-  // }
+  display: none;
+  @media (min-width: 1440px) {
+    display: block;
+    width: 699px;
+    margin-right: 0;
+    margin-left: auto;
+    border-radius: 10px;
+    width: 464px;
+    height: 526px;
+  }
 `;
 
 // export const GetStartLink = styled(Link)`
