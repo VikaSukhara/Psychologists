@@ -81,7 +81,7 @@ const SideBarMenu = ({ toggleBurgerMenu, onOpenLogIn, onOpenRegistration }) => {
           <Wrap>
             {" "}
             <NavigationLink to="/">Home</NavigationLink>
-            <NavigationLink to="/specialists" style={{marginBottom: "50px"}}>Psychologists</NavigationLink>
+            <NavigationLink to="/specialists" style={{marginBottom: "70px"}}>Psychologists</NavigationLink>
             <NavBtn onClick={onOpenLogIn}>Log In</NavBtn>
             <NavBtn onClick={onOpenRegistration}>Register</NavBtn>
           </Wrap>

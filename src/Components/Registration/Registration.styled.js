@@ -33,7 +33,7 @@ export const Button = styled.button`
 
 export const ButtonSignUp = styled.button`
   border-radius: 30px;
-  padding: 16px 189px;
+
   height: 52px;
   background: var(--button-bg);
   margin-top: 40px;
@@ -46,7 +46,11 @@ export const ButtonSignUp = styled.button`
   transition: var(--button-transition); /* Плавний перехід */
 
   &: hover {
-    transform: scale(var(--button-scale));; /* Збільшення на 5% */
+    transform: scale(var(--button-scale)); /* Збільшення на 5% */
+  }
+
+  @media (min-width: 1440px) {
+    padding: 16px 189px;
   }
 `;
 

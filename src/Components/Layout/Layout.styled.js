@@ -5,7 +5,6 @@ import { IoMenuOutline } from "react-icons/io5";
 export const NavBtn = styled.button`
   display: none;
   @media (min-width: 1440px) {
-    display: block;
     border: 1px solid rgba(25, 26, 21, 0.2);
     border-radius: 30px;
     padding: 14px 39px;

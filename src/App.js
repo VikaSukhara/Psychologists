@@ -13,7 +13,18 @@ const StyledToastContainer = styled(ToastContainer)`
     background-color: rgb(49, 103, 228); /* Колір прогрес-бару */
   }
 
+  .Toastify__toast {
+    font-size: 16px; 
+    padding: 10px 20px;
+  }
 
+  @media (max-width: 768px) {
+    .Toastify__toast {
+      font-size: 14px;
+      padding: 8px 15px;
+      width: 70%;
+    }
+  }
 `;
 
 function App() {
@@ -29,9 +40,9 @@ function App() {
 
       <StyledToastContainer
         progressStyle={{
-          backgroundColor: 'rgb(52, 112, 255);', // Змінюємо колір прогрес-бару
-          borderRadius: '50px'
-        }} 
+          backgroundColor: "rgb(52, 112, 255);", // Змінюємо колір прогрес-бару
+          borderRadius: "50px",
+        }}
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}

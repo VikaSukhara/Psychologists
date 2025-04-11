@@ -70,7 +70,9 @@ function ForgotPassword({ toggleModal }) {
         </svg>
       </ButtonCross>
       <H2>Password recovery</H2>
-
+      <p style={{ marginBottom: "20px" }}>
+        Please enter your email address to receive a link to reset your password
+      </p>
       <Formik
         initialValues={{
           email: "",

@@ -1,11 +1,8 @@
 import styled from "styled-components";
-import { Field, ErrorMessage , Form} from "formik";
-
-
-
+import { Field, ErrorMessage, Form } from "formik";
 
 export const H2 = styled.h2`
-  text-align: center;
+  margin-top: 15px;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 40px;
@@ -13,6 +10,10 @@ export const H2 = styled.h2`
   letter-spacing: -0.02em;
   color: var(--heading-color);
   margin-bottom: 30px;
+
+  @media (min-width: 1440px) {
+    margin-top: 0px;
+  }
 `;
 
 export const P = styled.p`
@@ -26,9 +27,8 @@ export const P = styled.p`
 
 export const Button = styled.button`
   border-radius: 30px;
-
-  width: 438px;
   height: 52px;
+  width: 100%;
 
   margin-top: 40px;
 
@@ -38,6 +38,10 @@ export const Button = styled.button`
   letter-spacing: -0.01em;
   background: var(--button-bg);
   color: #fbfbfb;
+
+  @media (min-width: 1440px) {
+    width: 438px;
+  }
 `;
 export const ButtonCross = styled.button`
   font-family: var(--font-family);
@@ -52,14 +56,13 @@ export const ButtonCross = styled.button`
 `;
 
 export const StyledForm = styled(Form)`
-display: flex;
-flex-direction: column;
-align-items: center;
-gap:15px;
-`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
 export const Label = styled.label``;
 export const Input = styled(Field)`
-  width: 438px;
+  width: 100%;
   height: 52px;
   box-sizing: border-box;
   border: var(--border);
