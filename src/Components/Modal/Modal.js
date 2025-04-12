@@ -11,6 +11,13 @@ function Modal({ isOpen, toggleModal, children }) {
       }
     };
   
+    if (isOpen) {
+      // Заборона на прокручування сторінки
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Відновлення прокручування сторінки, коли модалка закрита
+      document.body.style.overflow = '';
+    } 
     window.addEventListener('keydown', onEscapeClick);
     return () => {
       window.removeEventListener('keydown', onEscapeClick);

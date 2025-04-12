@@ -120,39 +120,20 @@ export const Button = styled.button`
   }
 `;
 
-////////////////////////......
-
-// import { ReactComponent as Map } from '../../img/map.svg';
-// import { ReactComponent as Star } from '../../img/star.svg';
-// import { ReactComponent as Heart } from '../../img/heart.svg';
-// import { ReactComponent as Stick } from '../../img/stick.svg';
-// import { ReactComponent as Online } from '../../img/online.svg';
-
-// export const MapIcon = styled(Map)`
-//   width: 10px;
-//   height: 10px;
-//   @media (min-width: 768px) {
-//     width: 16px;
-//     height: 16px;
-//   }
-// `;
-// export const StarIcon = styled(Star)`
-//   margin-right: 4px;
-//   width: 10px;
-//   height: 10px;
-//   @media (min-width: 768px) {
-//     width: 16px;
-//     height: 16px;
-//   }
-// `;
-
 export const HeartButn = styled.button`
+  display: block;
   position: absolute;
-  top: 16px;
-  right: 24px;
+  top: 20px;
+  right: 20px;
   background: transparent;
+  width: 25px;
+  height: 25px;
+
   @media (min-width: 768px) {
-    top: 24px;
+    top: 20px;
+    right: 24px;
+    width: 26px;
+    height: 26px;
   }
 `;
 
@@ -165,6 +146,7 @@ export const Ul = styled.ul`
 `;
 
 export const ForHoverCongtainer = styled.div`
+  // display: block;
   gap: 22px;
   position: relative;
 
@@ -174,10 +156,8 @@ export const ForHoverCongtainer = styled.div`
   letter-spacing: 0%;
   border-radius: 15px;
 
-  padding: 15px 15px;
-  width: 310px;
-  display: flex;
-  flex-direction: row;
+  padding: 20px 20px;
+
   margin-bottom: 32px;
   color: rgb(138, 138, 137);
   background-color: var(--button-text);
@@ -187,15 +167,18 @@ export const ForHoverCongtainer = styled.div`
     line-height: 24px;
     border-radius: 18px;
     width: 721px;
-    padding: 20px 20px;
+    padding: 30px 30px;
   }
 
   @media (min-width: 1440px) {
+    display: flex;
     width: 1184px;
     font-size: 16px;
     line-height: 24px;
     border-radius: 24px;
     padding: 24px 24px;
+    display: flex;
+    flex-direction: row;
   }
 
   transition: transform 0.5s ease-out;
@@ -206,21 +189,36 @@ export const ForHoverCongtainer = styled.div`
   }
 `;
 
+export const PhoneWrap = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+`;
+
+export const InformationWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-right: 70px;
+  justify-content: space-between;
+`;
+
 export const ImgWrap = styled.div`
   padding: 4px;
-  height: 60px;
+  height: 80px;
+  width: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid rgba(84, 190, 150, 0.2);
   border-radius: 15px;
   position: relative;
+  margin-right: 15px;
 
-  // @media (min-width: 768px) {
-  //   border-radius: 15px;
-  //   padding: 8px;
-  //   height: 88px;
-  // }
+  @media (min-width: 768px) {
+    border-radius: 15px;
+    padding: 8px;
+    width: 88px;
+    height: 88px;
+  }
 
   @media (min-width: 1440px) {
     border-radius: 30px;
@@ -231,15 +229,15 @@ export const ImgWrap = styled.div`
 `;
 
 export const Img = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 12px;
 
-  // @media (min-width: 768px) {
-  //   width: 70px;
-  //   height: 70px;
-  //   border-radius: 15px;
-  // }
+  @media (min-width: 768px) {
+    width: 85px;
+    height: 85px;
+    border-radius: 15px;
+  }
 
   @media (min-width: 1440px) {
     width: 96px;
@@ -251,8 +249,9 @@ export const Img = styled.img`
 
 export const RatingWrap = styled.div`
   display: none;
-  @media (min-width: 1440px) {
-    display: block;
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: self-start;
   }
 `;
 
@@ -261,7 +260,7 @@ export const WrapText = styled.div``;
 export const P = styled.p`
   font-family: var(--font-family);
   font-weight: 500;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 150%;
   color: #8a8a89;
 `;
@@ -279,7 +278,8 @@ export const WrapIcons = styled.div`
 `;
 
 export const WrapIconsBlock = styled.div`
-  display: none;
+  display: flex;
+  flex-direction: row;
 
   @media (min-width: 1440px) {
     display: flex;
@@ -295,9 +295,10 @@ export const OnlineIconWrap = styled.div`
   right: 2px;
   width: 10px;
   height: 10px;
+
   @media (min-width: 768px) {
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
     top: 3px;
     right: 3px;
   }
@@ -313,7 +314,7 @@ export const OnlineIconWrap = styled.div`
 export const TitleName = styled.h2`
   color: var(--span-color);
 
-  font-size: 18px;
+  font-size: 22px;
   line-height: 24px;
   letter-spacing: 0%;
   margin-bottom: 15px;
@@ -352,7 +353,7 @@ export const WrapDetails = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
     margin-bottom: 24px;
   }
 `;
@@ -363,6 +364,9 @@ export const Paragraph = styled.div`
   border-radius: 24px;
   background: rgb(243, 243, 243);
 `;
+
+export const PsychologistAbout = styled.p`
+font-size: 14px;`
 
 export const Buttons = styled.button`
   color: var(--span-color);
@@ -442,7 +446,7 @@ export const ButtonAppointment = styled.button`
 `;
 
 export const Heart = styled.div`
-  top: 24px;
+  top: 20px;
   right: 24px;
   position: absolute;
 `;

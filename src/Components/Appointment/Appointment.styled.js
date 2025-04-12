@@ -16,13 +16,19 @@ export const FormStyled = styled(FormikForm)`
 `;
 
 export const H2 = styled.h2`
+  font-size: 35px;
   font-family: var(--font-family);
   font-weight: 500;
-  font-size: 40px;
   line-height: 120%;
   letter-spacing: -0.02em;
-  color: var(--heading-color)
+  color: var(--heading-color);
   margin-bottom: 20px;
+  margin-top: 23px;
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+    margin-top: 0px;
+  }
 `;
 
 export const P = styled.p`
@@ -62,28 +68,33 @@ export const Button = styled.button`
 
 export const ButtonLogIn = styled.button`
   border-radius: 30px;
-  padding: 16px 196px;
-  width: 438px;
   height: 52px;
   background: var(--button-bg);
-  margin-top: 40px;
-
+  margin-top: 20px;
   font-weight: 500;
   font-size: 16px;
   line-height: 125%;
   letter-spacing: -0.01em;
   color: var(--button-text);
 
+  @media (min-width: 768px) {
+    margin-top: 40px;
+  }
+
   transition: var(--button-transition); /* Плавний перехід */
 
   &:hover {
-    transform: scale(var(--button-scale));; /* Збільшення на 5% */
+    transform: scale(var(--button-scale)); /* Збільшення на 5% */
   }
 `;
 
 export const Label = styled.label``;
 export const Input = styled(Field)`
-  width: 472px;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 472px;
+  }
   height: 52px;
   box-sizing: border-box;
   border: var(--border);
@@ -100,7 +111,6 @@ export const Input = styled(Field)`
 
   &::placeholder {
     color: var(--span-color--);
-
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
@@ -115,15 +125,16 @@ export const StyledError = styled(ErrorMessage)`
 `;
 
 export const InputAria = styled(Field)`
-  width: 270px;
+  width: 100%;
   height: 70px;
   padding: 5px;
   border: var(--border);
   border-radius: 10px;
+  padding: 18px 18px;
 
   &::placeholder {
     color: var(--span-color);
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 14px;
     letter-spacing: 0%;
@@ -153,6 +164,12 @@ export const InputAria = styled(Field)`
 
 export const InputContainers = styled.div`
   display: flex;
-  gap: 12px;
-  max-width: 472px; /* Контролюємо ширину контейнера */
+  flex-direction: column;
+  gap: 18px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 12px;
+    max-width: 472px; /* Контролюємо ширину контейнера */
+  }
 `;

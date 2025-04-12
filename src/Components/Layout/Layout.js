@@ -120,6 +120,7 @@ function Layout() {
             <BurgerMenuBtn onClick={() => toggleBurgerMenu()} />
             {isBurgerMenuOpen && (
               <SideBarMenu
+                isOpen={isBurgerMenuOpen}
                 toggleBurgerMenu={toggleBurgerMenu}
                 onOpenLogIn={openLogInModal}
                 onOpenRegistration={openRegistrationModal}

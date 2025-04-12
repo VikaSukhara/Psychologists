@@ -2,13 +2,21 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
   position: fixed;
-  right: 0;
   top: 0;
+  right: 0;
+  width: 250px;
   height: 100vh;
   background-color: rgb(249, 249, 249);
   padding: 15px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+
+  transform: ${({ visible }) =>
+    visible ? "translateX(0)" : "translateX(100%)"};
+  transition: transform 0.7s ease-in-out;
 `;
 
 export const Button = styled.button`

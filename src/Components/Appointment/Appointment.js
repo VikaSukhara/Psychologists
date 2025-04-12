@@ -1,5 +1,6 @@
 import { Formik } from "formik";
 import {
+  Button,
   ButtonLogIn,
   FormStyled,
   H2,
@@ -25,6 +26,30 @@ const Appointment = ({ psychologist, toggleModal, id }) => {
 
   return (
     <div>
+      <Button onClick={toggleModal}>
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24 8L8 24"
+            stroke="#191A15"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M8 8L24 24"
+            stroke="#191A15"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </Button>
       <H2>Make an appointment with a psychologists</H2>
       <P>
         You are on the verge of changing your life for the better. Fill out the
@@ -65,7 +90,12 @@ const Appointment = ({ psychologist, toggleModal, id }) => {
           <InputContainers>
             <Label>
               <Input
-                style={{ width: "232px" }}
+                style={{
+                  width: "100%",
+                  "@media (max-width: 768px)": {
+                    width: "232px",
+                  },
+                }}
                 type="number"
                 name="phone"
                 placeholder="+380"
@@ -75,7 +105,12 @@ const Appointment = ({ psychologist, toggleModal, id }) => {
 
             <Label>
               <Input
-                style={{ width: "232px" }}
+                style={{
+                  width: "100%",
+                  "@media (max-width: 768px)": {
+                    width: "232px",
+                  },
+                }}
                 type="time"
                 name="time"
                 placeholder="00:00"

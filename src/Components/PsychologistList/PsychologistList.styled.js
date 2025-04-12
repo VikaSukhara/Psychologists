@@ -112,3 +112,7 @@ export const Button = styled.button`
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 `;
+export const NotFound = styled.h2`
+text-align: center;
+margin-top: 60px;
+`

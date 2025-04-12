@@ -85,6 +85,9 @@ export const Logo = styled(NavLink)`
 `;
 
 export const BurgerMenuBtn = styled(IoMenuOutline)`
+  position: fixed;
+  top: 27px;
+  right: 20px;
   width: 20px;
   height: 20px;
   @media (min-width: 1440px) {

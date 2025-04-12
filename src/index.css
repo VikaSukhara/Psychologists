@@ -14,12 +14,17 @@
   --button-scale: 1.05;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Inter", sans-serif;
   background-color: #f3f3f3;
+  
 }
 
 code {

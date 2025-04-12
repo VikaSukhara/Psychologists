@@ -3,6 +3,8 @@ import {
   Button,
   Container,
   Label,
+  NotFound,
+  NtFound,
   SelectWrap,
   Wrap,
 } from "./PsychologistList.styled";
@@ -54,7 +56,7 @@ const PsychologistsList = () => {
 
           {/* Перевірка на порожній список, якщо фільтрація нічого не знайшла */}
           {filteredPsychologistsPerPage.length === 0 ? (
-            <p>No psychologists found</p>
+            <NotFound>No psychologists found</NotFound>
           ) : (
             filteredPsychologistsPerPage.map((psychologist) => (
               <PsychologistCard
