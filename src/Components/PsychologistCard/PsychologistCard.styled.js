@@ -207,8 +207,8 @@ export const ForHoverCongtainer = styled.div`
 `;
 
 export const ImgWrap = styled.div`
-  // padding: 4px;
-  // height: 60px;
+  padding: 4px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -231,9 +231,9 @@ export const ImgWrap = styled.div`
 `;
 
 export const Img = styled.img`
-  // width: 50px;
-  // height: 50px;
-  // border-radius: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
 
   // @media (min-width: 768px) {
   //   width: 70px;
@@ -246,6 +246,13 @@ export const Img = styled.img`
     height: 96px;
     border-radius: 15px;
     object-fit: cover;
+  }
+`;
+
+export const RatingWrap = styled.div`
+  display: none;
+  @media (min-width: 1440px) {
+    display: block;
   }
 `;
 
@@ -284,10 +291,10 @@ export const WrapIconsBlock = styled.div`
 
 export const OnlineIconWrap = styled.div`
   position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 8px;
-  height: 8px;
+  top: 0px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
   @media (min-width: 768px) {
     width: 14px;
     height: 14px;
@@ -340,11 +347,14 @@ export const SpanColour = styled.span`
 `;
 
 export const WrapDetails = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
+  display: none;
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
 `;
 
 export const Paragraph = styled.div`
@@ -380,7 +390,7 @@ export const Buttons = styled.button`
   }
 `;
 
-export const RatingWrap = styled.div`
+export const RatviewWrap = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -11,6 +11,9 @@ const options = [
   { value: "show-all", label: "Show all", isGray: true },
 ];
 
+
+const isMobile = window.innerWidth <= 768;
+
 const customStyles = {
   control: (provided, state) => ({
     ...provided,
@@ -18,13 +21,15 @@ const customStyles = {
     color: "#fbfbfb;",
     borderRadius: "14px",
     border: "none",
-    padding: "14px",
+    padding: isMobile ? "7px" : "14px",
     boxShadow: state.isFocused ? "0 0 10px rgba(41,98,255,0.3)" : "none",
+    fontSize: isMobile ? "14px" : "16px",
   }),
   singleValue: (provided) => ({
     ...provided,
     color: "#fbfbfb",
     fontWeight: "500px",
+    fontSize: isMobile ? "14px" : "16px",
   }),
   menu: (provided) => ({
     ...provided,
@@ -38,6 +43,8 @@ const customStyles = {
     backgroundColor: isSelected ? "rgba(109, 109, 109, 0.1)" : "white",
     fontWeight: isSelected ? "bold" : "normal",
     cursor: "pointer",
+    fontSize: isMobile ? "14px" : "16px",
+    padding: isMobile ? "8px 10px" : "10px 14px",
   }),
   dropdownIndicator: (provided, state) => ({
     ...provided,
