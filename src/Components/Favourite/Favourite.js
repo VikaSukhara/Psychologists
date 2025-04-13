@@ -4,7 +4,7 @@ import { useState } from "react";
 import { filterAction } from "../redux/action";
 import FilterSelect from "../FilterSelect";
 import { filterPsychologists } from "../../utils/utils";
-import { Button, Container, Label, SelectWrap, Wrap } from "./Favourite.styled";
+import { Button, Container, Label, NotFound, SelectWrap, Wrap } from "./Favourite.styled";
 
 const FavouriteComponent = () => {
   const [per_page, setPer_page] = useState(3);
@@ -34,7 +34,7 @@ const FavouriteComponent = () => {
           </SelectWrap>
 
           {filteredPsychologistsPerPage.length === 0 ? (
-            <p>No psychologists found</p>
+            <NotFound>No psychologists found</NotFound>
           ) : (
             filteredPsychologistsPerPage.map((favouritedPsychologist) => (
               <PsychologistCard

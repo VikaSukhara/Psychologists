@@ -30,7 +30,7 @@ const LogInSchema = Yup.object().shape({
     .required("Required"),
 });
 
-function LogIn({ toggleModal, openForgotPassword }) {
+function LogIn({ toggleModal, openForgotPassword ,toggleBurgerMenu}) {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   return (
@@ -95,6 +95,9 @@ function LogIn({ toggleModal, openForgotPassword }) {
 
               resetForm(); // Очищуємо форму
               toggleModal(); // Закриваємо модалку ✅
+              toggleBurgerMenu();
+                 
+                            
             })
             .catch((err) => {
               toast.warn("Wrong email or password. Try again");

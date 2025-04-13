@@ -7,7 +7,7 @@ export const StyledSVG = styled.svg`
 export const Section = styled.section`
   max-width: 320px;
   margin: 0 auto;
-  padding: 55px 0;
+  padding: 60px 0;
   @media (min-width: 1440px) {
     max-width: 1440px;
     margin: 0 auto;
@@ -85,13 +85,14 @@ export const Button = styled(Link)`
   height: 50px;
   border: 1px solid rgba(251, 251, 251, 0.4);
   background: #3470ff;
-  margin: 50px auto;
+  margin: 50px 0;
 
   @media (min-width: 1440px) {
     width: 230px;
     height: 60px;
     gap: 10px;
     margin-top: 64px;
+    margin: 50px auto;
   }
 
   transition: var(--button-transition); /* Плавний перехід */

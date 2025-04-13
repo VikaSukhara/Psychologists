@@ -7,6 +7,7 @@
   --button-text: #fbfbfb; /*/ текст кнопки */
   --heading-color: #191a15; /*колір заголовків -чорний */
   --paragraph-color: rgba(25, 26, 21, 0.5); /*колір параграфіи*/
+  --highlight-color:  #0000ff;
 
   --border: 1px solid rgba(17, 16, 28, 0.1); /* колір бордерів */
 

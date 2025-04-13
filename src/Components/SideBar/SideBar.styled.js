@@ -1,15 +1,16 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
+
 export const Container = styled.div`
-  position: fixed;
+position: fixed;
   top: 0;
-  right: 0;
-  width: 250px;
+  left: 0;
+  width: 100vw; /* вся ширина */
   height: 100vh;
   background-color: rgb(249, 249, 249);
   padding: 15px;
-  z-index: 9999;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   padding-top: 50px;

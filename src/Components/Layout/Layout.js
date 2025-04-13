@@ -60,6 +60,8 @@ function Layout() {
   const openRegistrationModal = () => setIsRegistrationOpen(true);
   const openLogInModal = () => setIsLogInOpen(true);
 
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <div>
       <Nav>
@@ -67,7 +69,15 @@ function Layout() {
           <Container>
             <Logo to="/">Psychologists</Logo>
 
-            <BurgerMenuBtn />
+            <BurgerMenuBtn onClick={() => toggleBurgerMenu()} />
+            {isMobile && (
+              <SideBarMenu
+                isOpen={isBurgerMenuOpen}
+                toggleBurgerMenu={toggleBurgerMenu}
+                onOpenLogIn={openLogInModal}
+                onOpenRegistration={openRegistrationModal}
+              />
+            )}
             <NavigationLink style={{ marginRight: "40px" }} to="/">
               {" "}
               Home
@@ -118,7 +128,7 @@ function Layout() {
             {" "}
             <Logo to="/">Psychologists</Logo>
             <BurgerMenuBtn onClick={() => toggleBurgerMenu()} />
-            {isBurgerMenuOpen && (
+            {isMobile && (
               <SideBarMenu
                 isOpen={isBurgerMenuOpen}
                 toggleBurgerMenu={toggleBurgerMenu}
@@ -149,6 +159,7 @@ function Layout() {
             <LogIn
               toggleModal={toggleModalLogIn}
               openForgotPassword={openForgotPassword}
+              toggleBurgerMenu={toggleBurgerMenu}
             />
           </Modal>
         )}
@@ -167,7 +178,7 @@ function Layout() {
             isOpen={isRegistrationOpen}
             toggleModal={toggleModalRegistration}
           >
-            <Registration toggleModal={toggleModalRegistration} />
+            <Registration toggleModal={toggleModalRegistration} toggleBurgerMenu={toggleBurgerMenu} />
           </Modal>
         )}
       </Nav>

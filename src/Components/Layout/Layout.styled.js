@@ -12,7 +12,6 @@ export const NavBtn = styled.button`
     height: 48px;
 
     transition: background 0.3s ease; /* Плавний перехід */
-    transition: color 0.3s ease; /* Плавний перехід */
 
     transition: var(--button-transition); /* Плавний перехід */
 
@@ -62,7 +61,7 @@ export const Logo = styled(NavLink)`
   letter-spacing: -2%;
   text-align: left;
   cursor: pointer;
-  color: var(--main-color);
+  color: var(--highlight-color);
 
   transition: var(--button-transition); /* Плавний перехід */
 

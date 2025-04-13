@@ -32,7 +32,7 @@ let RegistrationSchema = yup.object().shape({
     .required("Required"),
 });
 
-function Registration({ toggleModal }) {
+function Registration({ toggleModal, toggleBurgerMenu }) {
   const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
@@ -93,6 +93,7 @@ function Registration({ toggleModal }) {
               );
               resetForm(); // Очищуємо форму
               toggleModal(); // Закриваємо модалку ✅
+              toggleBurgerMenu();
 
               // Додаємо користувача в Redux Store
               dispatch(
