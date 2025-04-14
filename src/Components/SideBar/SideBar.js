@@ -30,7 +30,6 @@ const SideBarMenu = ({
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    console.log("useEffect отримав isOpen:", isOpen);
     if (isOpen) {
       setVisible(true);
     } else {

@@ -26,13 +26,13 @@ function Layout() {
 
   const isLoggin = useSelector((state) => state.user.isLoggin);
   const userName = useSelector((state) => state.user.user?.name);
-  const user = useSelector((state) => state.user);
-  console.log("user", user);
+
 
   const [isLogInOpen, setIsLogInOpen] = useState(false);
   const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
+
 
   const openForgotPassword = () => {
     setIsLogInOpen(false);
@@ -62,7 +62,7 @@ function Layout() {
 
   const isLaptop = window.innerWidth > 1440;
   const isMobile = window.innerWidth <= 768;
-  console.log("window.innerWidth", window.innerWidth  )
+
 
   return (
     <div>
@@ -87,7 +87,10 @@ function Layout() {
               {" "}
               Home
             </NavigationLink>
-            <NavigationLink  style={{ marginRight: isLaptop ? "40px" : "20px" }} to="/specialists">
+            <NavigationLink
+              style={{ marginRight: isLaptop ? "40px" : "20px" }}
+              to="/specialists"
+            >
               Psychologists
             </NavigationLink>
             <NavigationLink to="/favourite">Favourite</NavigationLink>
@@ -141,7 +144,10 @@ function Layout() {
                 onOpenRegistration={openRegistrationModal}
               />
             )}
-            <NavigationLink  style={{ marginRight: isLaptop ? "40px" : "20px" }} to="/">
+            <NavigationLink
+              style={{ marginRight: isLaptop ? "40px" : "20px" }}
+              to="/"
+            >
               Home
             </NavigationLink>
             <NavigationLink to="/specialists">Psychologists</NavigationLink>
@@ -159,36 +165,37 @@ function Layout() {
             </BtnContainer>
           </Container>
         )}
-        {isLogInOpen && (
-          <Modal isOpen={isLogInOpen} toggleModal={toggleModalLogIn}>
+
+        <Modal isOpen={isLogInOpen} toggleModal={toggleModalLogIn}>
+          {isLogInOpen && (
             <LogIn
               toggleModal={toggleModalLogIn}
               openForgotPassword={openForgotPassword}
               toggleBurgerMenu={toggleBurgerMenu}
             />
-          </Modal>
-        )}
+          )}
+        </Modal>
 
-        {isForgotPasswordOpen && (
-          <Modal
-            isOpen={isForgotPasswordOpen}
-            toggleModal={toggleModalForgotPassword}
-          >
+        <Modal
+          isOpen={isForgotPasswordOpen}
+          toggleModal={toggleModalForgotPassword}
+        >
+          {isForgotPasswordOpen && (
             <ForgotPassword toggleModal={toggleModalForgotPassword} />
-          </Modal>
-        )}
+          )}
+        </Modal>
 
-        {isRegistrationOpen && (
-          <Modal
-            isOpen={isRegistrationOpen}
-            toggleModal={toggleModalRegistration}
-          >
+        <Modal
+          isOpen={isRegistrationOpen}
+          toggleModal={toggleModalRegistration}
+        >
+          {isRegistrationOpen && (
             <Registration
               toggleModal={toggleModalRegistration}
               toggleBurgerMenu={toggleBurgerMenu}
             />
-          </Modal>
-        )}
+          )}
+        </Modal>
       </Nav>
       <HeaderLine />
       <Outlet />

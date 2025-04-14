@@ -32,7 +32,7 @@ const PsychologistsList = () => {
   const psychologists = useSelector(selectPsychologists);
   const filter = useSelector((state) => state.filter.selectedfilter);
   const isLoading = useSelector(selectIsLoading);
-  console.log(isLoading);
+  
   // Використовуємо функцію filterPsychologists для фільтрації та сортування
   const filteredPsychologists = filterPsychologists(psychologists, filter);
   const filteredPsychologistsPerPage = filteredPsychologists.slice(0, per_page);
