@@ -16,7 +16,9 @@ export const Container = styled.div`
     // height: 736px;
   }
   @media (min-width: 1440px) {
-    padding: 64px 128px 100px 128px;
+    padding: 0 128px;
+    max-width: 1440px;
+    margin: 64px auto;
   }
 `;
 
@@ -119,22 +121,21 @@ export const NotFound = styled.h2`
   color: var(--highlight-color);
 `;
 
-
-
-
 export const LoaderContainerStyle = styled.div`
-  display: flex;       // Використовуємо flex для центровання
+  display: flex; // Використовуємо flex для центровання
   justify-content: center; // Горизонтальне центровання
-  align-items: center;  // Вертикальне центровання
+  align-items: center; // Вертикальне центровання
   margin: 250px 0;
-
 `;
 
-// background-color: red;
-//     width: 15px;
-//     height: 15px;
-//     margin: 2px;
-//     border-radius: 100%;
-//     display: inline-block;
-//     animation: 0.75s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0.24s infinite normal both running react-spinners-PulseLoader-pulse;
-// }
+export const Ul = styled.ul`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  @media (min-width: 1440px) {
+    width: 1184px;
+  }
+`;

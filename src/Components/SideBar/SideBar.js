@@ -105,7 +105,6 @@ const SideBarMenu = ({
                   <UserName>{userName}</UserName>
                 </div>
                 <NavBtnLogOut
-                  style={{ marginTop: "100px" }}
                   onClick={() => {
                     dispatch(logOut());
                     toggleBurgerMenu();

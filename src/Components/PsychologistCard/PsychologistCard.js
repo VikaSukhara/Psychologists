@@ -87,7 +87,6 @@ const PsychologistCard = ({ psychologist }) => {
 
   return (
     <div>
-      <Ul>
         <motion.li
           key={psychologist.id}
           layout
@@ -287,7 +286,6 @@ const PsychologistCard = ({ psychologist }) => {
             </WrapText>
           </ForHoverCongtainer>
         </motion.li>
-      </Ul>
     </div>
   );
 };

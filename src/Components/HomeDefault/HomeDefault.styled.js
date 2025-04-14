@@ -8,6 +8,13 @@ export const Section = styled.section`
   max-width: 320px;
   margin: 0 auto;
   padding: 60px 0;
+
+  @media (min-width: 768px) {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+
   @media (min-width: 1440px) {
     max-width: 1440px;
     margin: 0 auto;
@@ -15,6 +22,13 @@ export const Section = styled.section`
   }
 `;
 export const Wrap = styled.div`
+  @media (min-width: 768px) {
+    padding: 78px 0 100px 0;
+    position: relative;
+    gap: 125px;
+    align-items: center;
+  }
+
   @media (min-width: 1440px) {
     padding: 78px 0 100px 0;
     display: flex;
@@ -31,7 +45,6 @@ export const WrapText = styled.div`
     height: 438px;
   }
 `;
-
 export const H1 = styled.h1`
   font-size: 30px;
   font-weight: 500;
@@ -42,9 +55,12 @@ export const H1 = styled.h1`
 
   @media (min-width: 768px) {
     font-size: 50px;
+    font-weight: 600;
+    font-size: 70px;
+    line-height: 70px;
   }
   @media (min-width: 1440px) {
-    font-size: 70px;
+    font-size: 80px;
     line-height: 70px;
     margin-bottom: 20px;
   }
@@ -59,14 +75,14 @@ export const H3 = styled.h3`
   line-height: 25px;
   letter-spacing: -2%;
   text-align: left;
-
+  letter-spacing: -0.02em;
   @media (min-width: 768px) {
     font-size: 25px;
   }
   @media (min-width: 1440px) {
     font-family: var(--font-family);
     font-weight: 500;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 133%;
     letter-spacing: -0.02em;
     color: #191a15;
@@ -92,7 +108,6 @@ export const Button = styled(Link)`
     height: 60px;
     gap: 10px;
     margin-top: 64px;
-    margin: 50px auto;
   }
 
   transition: var(--button-transition); /* Плавний перехід */
@@ -110,7 +125,7 @@ export const Button = styled(Link)`
 
 export const ExperienceWrap = styled.div`
   display: none;
-  @media (min-width: 1440px) {
+  @media (min-width: 768px) {
     position: absolute;
     bottom: 153px;
     right: 254px;
@@ -144,7 +159,7 @@ export const ExperienceNumber = styled.p`
 
 export const Img = styled.img`
   display: none;
-  @media (min-width: 1440px) {
+  @media (min-width: 768px) {
     display: block;
     width: 699px;
     margin-right: 0;
@@ -154,14 +169,6 @@ export const Img = styled.img`
     height: 526px;
   }
 `;
-
-// export const GetStartLink = styled(Link)`
-//   font-weight: 700;
-//   font-size: 18px;
-//   line-height: 1.56;
-//   border-radius: 12px;
-//   color: #fbfbfb;
-// `;
 
 export const CheckMarkWrap = styled.div`
   border-radius: 13px;

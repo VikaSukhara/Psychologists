@@ -10,3 +10,9 @@ export const filteredReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+
+export const filterAction = (filteredValue) => ({
+  type: "filtered/list",
+  payload: filteredValue,
+});

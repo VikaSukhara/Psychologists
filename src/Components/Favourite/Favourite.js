@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import PsychologistCard from "../PsychologistCard/PsychologistCard";
 import { useState } from "react";
-import { filterAction } from "../redux/action";
+
 import FilterSelect from "../FilterSelect";
 import { filterPsychologists } from "../../utils/utils";
 import { Button, Container, Label, NotFound, SelectWrap, Wrap } from "./Favourite.styled";
+import { filterAction } from "../redux/filtersReducer";
 
 const FavouriteComponent = () => {
   const [per_page, setPer_page] = useState(3);

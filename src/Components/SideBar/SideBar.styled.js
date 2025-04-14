@@ -23,7 +23,7 @@ export const Button = styled.button`
   color: var(--span-color: );
   position: absolute;
   right: 15px;
-  top: 15px;
+  top: 24px;
 `;
 
 export const Wrap = styled.div`
@@ -56,12 +56,12 @@ export const NavBtn = styled.button`
 `;
 
 export const NavBtnLogOut = styled.button`
-display: block;
-border: 1px solid rgba(25, 26, 21, 0.2);
-border-radius: 30px;
-padding: 14px 25px;
-width: 80%;
-height: 48px;
+  display: block;
+  border: 1px solid rgba(25, 26, 21, 0.2);
+  border-radius: 30px;
+  padding: 14px 25px;
+  width: 80%;
+  height: 48px;
 `;
 
 export const ConditionContainer = styled.div`

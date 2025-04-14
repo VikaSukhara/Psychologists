@@ -142,13 +142,7 @@ export const HeartButn = styled.button`
   }
 `;
 
-export const Ul = styled.ul`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-`;
+
 
 export const ForHoverCongtainer = styled.div`
   gap: 22px;

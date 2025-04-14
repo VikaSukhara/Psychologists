@@ -60,7 +60,9 @@ function Layout() {
   const openRegistrationModal = () => setIsRegistrationOpen(true);
   const openLogInModal = () => setIsLogInOpen(true);
 
+  const isLaptop = window.innerWidth > 1440;
   const isMobile = window.innerWidth <= 768;
+  console.log("window.innerWidth", window.innerWidth  )
 
   return (
     <div>
@@ -78,11 +80,14 @@ function Layout() {
                 onOpenRegistration={openRegistrationModal}
               />
             )}
-            <NavigationLink style={{ marginRight: "40px" }} to="/">
+            <NavigationLink
+              style={{ marginRight: isLaptop ? "40px" : "20px" }}
+              to="/"
+            >
               {" "}
               Home
             </NavigationLink>
-            <NavigationLink style={{ marginRight: "40px" }} to="/specialists">
+            <NavigationLink  style={{ marginRight: isLaptop ? "40px" : "20px" }} to="/specialists">
               Psychologists
             </NavigationLink>
             <NavigationLink to="/favourite">Favourite</NavigationLink>
@@ -136,7 +141,7 @@ function Layout() {
                 onOpenRegistration={openRegistrationModal}
               />
             )}
-            <NavigationLink style={{ marginRight: "40px" }} to="/">
+            <NavigationLink  style={{ marginRight: isLaptop ? "40px" : "20px" }} to="/">
               Home
             </NavigationLink>
             <NavigationLink to="/specialists">Psychologists</NavigationLink>
@@ -178,7 +183,10 @@ function Layout() {
             isOpen={isRegistrationOpen}
             toggleModal={toggleModalRegistration}
           >
-            <Registration toggleModal={toggleModalRegistration} toggleBurgerMenu={toggleBurgerMenu} />
+            <Registration
+              toggleModal={toggleModalRegistration}
+              toggleBurgerMenu={toggleBurgerMenu}
+            />
           </Modal>
         )}
       </Nav>

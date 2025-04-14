@@ -4,23 +4,26 @@ import { IoMenuOutline } from "react-icons/io5";
 
 export const NavBtn = styled.button`
   display: none;
-  @media (min-width: 1440px) {
+  @media (min-width: 768px) {
     display: flex;
     border: 1px solid rgba(25, 26, 21, 0.2);
     border-radius: 30px;
-    padding: 14px 39px;
+    padding: 12px 20px;
     width: 100%;
     height: 48px;
+  }
+  @media (min-width: 1440px) {
+    padding: 14px 39px;
+  }
 
-    transition: background 0.3s ease; /* Плавний перехід */
+  transition: background 0.3s ease; /* Плавний перехід */
 
-    transition: var(--button-transition); /* Плавний перехід */
+  transition: var(--button-transition); /* Плавний перехід */
 
-    &:hover {
-      background: var(--button-bg);
-      color: var(--button-text);
-      transform: scale(var(--button-scale)); /* Збільшення на 5% */
-    }
+  &:hover {
+    background: var(--button-bg);
+    color: var(--button-text);
+    transform: scale(var(--button-scale)); /* Збільшення на 5% */
   }
 `;
 
@@ -35,11 +38,16 @@ export const Container = styled.div`
 
   align-items: center;
   justify-content: space-between;
-
   z-index: 10;
+
+  @media (min-width: 768px) {
+    width: 768px;
+    margin: 0 auto;
+  }
+
   @media (min-width: 1440px) {
     padding: 0 128px;
-    max-width: 1440px;
+    width: 1440px;
     margin: 0 auto;
     position: relative;
   }
@@ -56,8 +64,8 @@ export const HeaderLine = styled.hr`
 `;
 
 export const Logo = styled(NavLink)`
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 22px;
+  font-weight: 700;
   line-height: 28px;
   letter-spacing: -2%;
   text-align: left;
@@ -74,10 +82,11 @@ export const Logo = styled(NavLink)`
   @media (min-width: 768px) {
     font-size: 24px;
     display: block;
+    margin-right: 15px;
   }
   @media (min-width: 1440px) {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 120%;
     letter-spacing: -0.02em;
     margin-right: 135px;
@@ -88,16 +97,16 @@ export const BurgerMenuBtn = styled(IoMenuOutline)`
   position: fixed;
   top: 27px;
   right: 20px;
-  width: 20px;
-  height: 20px;
-  @media (min-width: 1440px) {
+  width: 24px;
+  height: 24px;
+  @media (min-width: 768px) {
     display: none;
   }
 `;
 
 export const BtnContainer = styled.div`
   display: none;
-  @media (min-width: 1440px) {
+  @media (min-width: 768px) {
     display: flex;
     justify-content: flex-end;
     margin-left: auto;
@@ -107,7 +116,7 @@ export const BtnContainer = styled.div`
 
 export const NavigationLink = styled(NavLink)`
   display: none;
-  @media (min-width: 1440px) {
+  @media (min-width: 768px) {
     display: flex;
     text-decoration: none;
     color: black;
@@ -151,5 +160,9 @@ export const UserName = styled.h3`
   line-height: 125%;
   letter-spacing: -0.01em;
   color: var(--heading-color);
-  margin-right: 28px;
+  margin-right: 10px;
+
+  @media (min-width: 1440px) {
+    margin-right: 28px;
+  }
 `;

@@ -6,6 +6,7 @@ import {
   LoaderContainerStyle,
   NotFound,
   SelectWrap,
+  Ul,
   Wrap,
 } from "./PsychologistList.styled";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,7 +14,7 @@ import PulseLoader from "react-spinners/PulseLoader";
 import { fetchData } from "../Psychologists_fetch/PsychologistsDef";
 
 import PsychologistCard from "../PsychologistCard/PsychologistCard";
-import { filterAction } from "../redux/action";
+
 import {
   getLoading,
   getPsychologists,
@@ -22,6 +23,7 @@ import {
 } from "../redux/psychologistsSlice";
 import FilterSelect from "../FilterSelect";
 import { filterPsychologists } from "../../utils/utils";
+import { filterAction } from "../redux/filtersReducer";
 
 const PsychologistsList = () => {
   const dispatch = useDispatch();
@@ -75,12 +77,14 @@ const PsychologistsList = () => {
             <NotFound>No psychologists found</NotFound>
           ) : (
             <>
-              {filteredPsychologistsPerPage.map((psychologist) => (
-                <PsychologistCard
-                  psychologist={psychologist}
-                  key={psychologist.id}
-                />
-              ))}
+              <Ul>
+                {filteredPsychologistsPerPage.map((psychologist) => (
+                  <PsychologistCard
+                    psychologist={psychologist}
+                    key={psychologist.id}
+                  />
+                ))}
+              </Ul>
               {filteredPsychologistsPerPage.length > 0 && // Масив не порожній
                 filteredPsychologistsPerPage.length % 3 === 0 && (
                   <Button
@@ -99,12 +103,3 @@ const PsychologistsList = () => {
 };
 
 export default PsychologistsList;
-
-{
-  /* { filteredPsychologistsPerPage.length > 0 && // Масив не порожній
-          //   filteredPsychologistsPerPage.length % 3 === 0 && (
-          //     <Button type="button" onClick={() => setPer_page(per_page + 3)}>
-          //       Load more
-          //     </Button>
-          //   )} */
-}
