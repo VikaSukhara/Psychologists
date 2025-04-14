@@ -188,107 +188,103 @@ const PsychologistCard = ({ psychologist }) => {
               </HeartButn>
             </PhoneWrap>
 
-            {/* <WrapText> */}
-            <WrapIcons>
-              <WrapIconsBlock></WrapIconsBlock>
-            </WrapIcons>
+            <WrapText>
+              <WrapDetails>
+                <Paragraph>
+                  Experience:
+                  <SpanColour> {psychologist.experience}</SpanColour>
+                </Paragraph>
 
-            <WrapDetails>
-              <Paragraph>
-                Experience:
-                <SpanColour> {psychologist.experience}</SpanColour>
-              </Paragraph>
+                <Paragraph>
+                  License:
+                  <SpanColour> {psychologist.license}</SpanColour>
+                </Paragraph>
 
-              <Paragraph>
-                License:
-                <SpanColour> {psychologist.license}</SpanColour>
-              </Paragraph>
+                <Paragraph>
+                  Specialization:
+                  <SpanColour> {psychologist.specialization}</SpanColour>
+                </Paragraph>
 
-              <Paragraph>
-                Specialization:
-                <SpanColour> {psychologist.specialization}</SpanColour>
-              </Paragraph>
+                <Paragraph>
+                  Initial_consultation:
+                  <SpanColour> {psychologist.initial_consultation}</SpanColour>
+                </Paragraph>
+              </WrapDetails>
 
-              <Paragraph>
-                Initial_consultation:
-                <SpanColour> {psychologist.initial_consultation}</SpanColour>
-              </Paragraph>
-            </WrapDetails>
-
-            <PsychologistAbout>{psychologist.about}</PsychologistAbout>
-            {!isOpenMore && (
-              <Buttons
-                type="button"
-                onClick={() => setIsOpenMore(true)}
-                key={psychologist.id}
-              >
-                Read more
-              </Buttons>
-            )}
-            {isOpenMore && (
-              <div style={{ marginTop: "48px" }}>
-                {psychologist.reviews.map((review) => {
-                  return (
-                    <div style={{ marginBottom: "25px" }}>
-                      <RatviewWrap style={{ marginBottom: "16px" }}>
-                        <ReviewerImg>
-                          <ReviewerLetter>
-                            {review.reviewer.slice(0, 1)}
-                          </ReviewerLetter>
-                        </ReviewerImg>
-
-                        <div>
-                          <h3>
-                            <SpanColour>{review.reviewer}</SpanColour>
-                          </h3>
-                          <RatingWrap>
-                            <svg
-                              style={{
-                                fill: "#ffc531",
-                                marginRight: "8px",
-                              }}
-                              width="16"
-                              height="15"
-                              viewBox="0 0 16 15"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M6.20021 4.69703L8 1.28579L9.79979 4.69703C9.95896 4.9987 10.2491 5.20947 10.5851 5.26762L14.3856 5.92519L11.6975 8.69103C11.4598 8.93563 11.3489 9.27666 11.3975 9.61427L11.9465 13.4319L8.48537 11.7301C8.17929 11.5795 7.82071 11.5795 7.51463 11.7301L4.05348 13.4319L4.6025 9.61427C4.65105 9.27666 4.54024 8.93563 4.30252 8.69103L1.6144 5.92519L5.41486 5.26762C5.75095 5.20947 6.04104 4.9987 6.20021 4.69703Z"
-                                fill="#FFC531"
-                                stroke="#FFC531"
-                                strokeWidth="1.2"
-                              />
-                            </svg>
-                            <p>
-                              <SpanColour>{review.rating}</SpanColour>
-                            </p>
-                          </RatingWrap>
-                        </div>
-                      </RatviewWrap>
-
-                      <p>{review.comment}</p>
-                    </div>
-                  );
-                })}
-                <ButtonAppointment
+              <PsychologistAbout>{psychologist.about}</PsychologistAbout>
+              {!isOpenMore && (
+                <Buttons
                   type="button"
-                  onClick={() => setIsOpenModal(true)}
+                  onClick={() => setIsOpenMore(true)}
+                  key={psychologist.id}
                 >
-                  Make an appointment
-                </ButtonAppointment>
-                {isOpenModal && (
-                  <Modal isOpen={isOpenModal} toggleModal={toggleModal}>
-                    <Appointment
-                      psychologist={psychologist}
-                      toggleModal={toggleModal}
-                      id={psychologist.id}
-                    />
-                  </Modal>
-                )}
-              </div>
-            )}
-            {/* </WrapText> */}
+                  Read more
+                </Buttons>
+              )}
+              {isOpenMore && (
+                <div style={{ marginTop: "48px" }}>
+                  {psychologist.reviews.map((review) => {
+                    return (
+                      <div style={{ marginBottom: "25px" }}>
+                        <RatviewWrap style={{ marginBottom: "16px" }}>
+                          <ReviewerImg>
+                            <ReviewerLetter>
+                              {review.reviewer.slice(0, 1)}
+                            </ReviewerLetter>
+                          </ReviewerImg>
+
+                          <div>
+                            <h3>
+                              <SpanColour>{review.reviewer}</SpanColour>
+                            </h3>
+                            <RatingWrap>
+                              <svg
+                                style={{
+                                  fill: "#ffc531",
+                                  marginRight: "8px",
+                                }}
+                                width="16"
+                                height="15"
+                                viewBox="0 0 16 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M6.20021 4.69703L8 1.28579L9.79979 4.69703C9.95896 4.9987 10.2491 5.20947 10.5851 5.26762L14.3856 5.92519L11.6975 8.69103C11.4598 8.93563 11.3489 9.27666 11.3975 9.61427L11.9465 13.4319L8.48537 11.7301C8.17929 11.5795 7.82071 11.5795 7.51463 11.7301L4.05348 13.4319L4.6025 9.61427C4.65105 9.27666 4.54024 8.93563 4.30252 8.69103L1.6144 5.92519L5.41486 5.26762C5.75095 5.20947 6.04104 4.9987 6.20021 4.69703Z"
+                                  fill="#FFC531"
+                                  stroke="#FFC531"
+                                  strokeWidth="1.2"
+                                />
+                              </svg>
+                              <p>
+                                <SpanColour>{review.rating}</SpanColour>
+                              </p>
+                            </RatingWrap>
+                          </div>
+                        </RatviewWrap>
+
+                        <p>{review.comment}</p>
+                      </div>
+                    );
+                  })}
+                  <ButtonAppointment
+                    type="button"
+                    onClick={() => setIsOpenModal(true)}
+                  >
+                    Make an appointment
+                  </ButtonAppointment>
+                  {isOpenModal && (
+                    <Modal isOpen={isOpenModal} toggleModal={toggleModal}>
+                      <Appointment
+                        psychologist={psychologist}
+                        toggleModal={toggleModal}
+                        id={psychologist.id}
+                      />
+                    </Modal>
+                  )}
+                </div>
+              )}
+            </WrapText>
           </ForHoverCongtainer>
         </motion.li>
       </Ul>

@@ -39,12 +39,11 @@ export const Label = styled.label`
 
 export const NotFound = styled.h2`
   font-size: 20px;
-  font-weight: bold;
   text-align: center;
   margin-top: 100px;
   color: var(--highlight-color);
-
 `;
+
 export const Button = styled.button`
   font-family: var(--font-family);
   font-weight: 500;

@@ -113,6 +113,28 @@ export const Button = styled.button`
   }
 `;
 export const NotFound = styled.h2`
-text-align: center;
-margin-top: 60px;
-`
+  font-size: 20px;
+  text-align: center;
+  margin-top: 100px;
+  color: var(--highlight-color);
+`;
+
+
+
+
+export const LoaderContainerStyle = styled.div`
+  display: flex;       // Використовуємо flex для центровання
+  justify-content: center; // Горизонтальне центровання
+  align-items: center;  // Вертикальне центровання
+  margin: 250px 0;
+
+`;
+
+// background-color: red;
+//     width: 15px;
+//     height: 15px;
+//     margin: 2px;
+//     border-radius: 100%;
+//     display: inline-block;
+//     animation: 0.75s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0.24s infinite normal both running react-spinners-PulseLoader-pulse;
+// }

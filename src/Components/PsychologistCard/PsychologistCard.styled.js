@@ -135,6 +135,11 @@ export const HeartButn = styled.button`
     width: 26px;
     height: 26px;
   }
+
+  @media (min-width: 1440px) {
+    top: 24px;
+    right: 24px;
+  }
 `;
 
 export const Ul = styled.ul`
@@ -146,7 +151,6 @@ export const Ul = styled.ul`
 `;
 
 export const ForHoverCongtainer = styled.div`
-  // display: block;
   gap: 22px;
   position: relative;
 
@@ -172,13 +176,12 @@ export const ForHoverCongtainer = styled.div`
 
   @media (min-width: 1440px) {
     display: flex;
+    flex-direction: column;
     width: 1184px;
     font-size: 16px;
     line-height: 24px;
     border-radius: 24px;
     padding: 24px 24px;
-    display: flex;
-    flex-direction: row;
   }
 
   transition: transform 0.5s ease-out;
@@ -199,6 +202,11 @@ export const InformationWrap = styled.div`
   flex-direction: column;
   margin-right: 70px;
   justify-content: space-between;
+
+  @media (min-width: 1440px) {
+    justify-content: flex-start;
+    margin-right: 428px;
+  }
 `;
 
 export const ImgWrap = styled.div`
@@ -225,6 +233,7 @@ export const ImgWrap = styled.div`
     padding: 12px;
     height: 120px;
     width: 120px;
+    margin-right: 20px;
   }
 `;
 
@@ -255,7 +264,13 @@ export const RatingWrap = styled.div`
   }
 `;
 
-export const WrapText = styled.div``;
+export const WrapText = styled.div`
+  @media (min-width: 1440px) {
+    display: flex;
+    flex-direction: column;
+    margin-left: 144px;
+  }
+`;
 
 export const P = styled.p`
   font-family: var(--font-family);
@@ -307,7 +322,7 @@ export const OnlineIconWrap = styled.div`
     width: 14px;
     height: 14px;
     top: 7px;
-    right: 13px;
+    right: 10px;
   }
 `;
 
@@ -366,7 +381,8 @@ export const Paragraph = styled.div`
 `;
 
 export const PsychologistAbout = styled.p`
-font-size: 14px;`
+  font-size: 14px;
+`;
 
 export const Buttons = styled.button`
   color: var(--span-color);
@@ -380,17 +396,16 @@ export const Buttons = styled.button`
   text-decoration-line: underline;
   background-color: transparent;
   margin-top: 16px;
+  transition: var(--button-transition);
+  transform-origin: left center;
+  &:hover {
+    transform: scale(var(--button-scale)); /* Збільшення на 5% */
+  }
 
   @media (min-width: 768px) {
     font-size: 16px;
     font-weight: 600;
     line-height: 24px;
-  }
-
-  transition: var(--button-transition); /* Плавний перехід */
-
-  &:hover {
-    transform: scale(var(--button-scale)); /* Збільшення на 5% */
   }
 `;
 
@@ -437,6 +452,11 @@ export const ButtonAppointment = styled.button`
   line-height: 20px;
   letter-spacing: -1%;
   margin-top: 25px;
+
+  transition: var(--button-transition);
+  &:hover {
+    transform: scale(var(--button-scale)); /* Збільшення на 5% */
+  }
 
   @media (min-width: 768px) {
     border-radius: 30px;

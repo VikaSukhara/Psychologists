@@ -3,12 +3,13 @@ import {
   Button,
   Container,
   Label,
+  LoaderContainerStyle,
   NotFound,
-  NtFound,
   SelectWrap,
   Wrap,
 } from "./PsychologistList.styled";
 import { useDispatch, useSelector } from "react-redux";
+import PulseLoader from "react-spinners/PulseLoader";
 import { fetchData } from "../Psychologists_fetch/PsychologistsDef";
 
 import PsychologistCard from "../PsychologistCard/PsychologistCard";
@@ -16,6 +17,7 @@ import { filterAction } from "../redux/action";
 import {
   getLoading,
   getPsychologists,
+  selectIsLoading,
   selectPsychologists,
 } from "../redux/psychologistsSlice";
 import FilterSelect from "../FilterSelect";
@@ -27,7 +29,8 @@ const PsychologistsList = () => {
 
   const psychologists = useSelector(selectPsychologists);
   const filter = useSelector((state) => state.filter.selectedfilter);
-
+  const isLoading = useSelector(selectIsLoading);
+  console.log(isLoading);
   // Використовуємо функцію filterPsychologists для фільтрації та сортування
   const filteredPsychologists = filterPsychologists(psychologists, filter);
   const filteredPsychologistsPerPage = filteredPsychologists.slice(0, per_page);
@@ -43,6 +46,12 @@ const PsychologistsList = () => {
     dispatch(filterAction(selectedOption.label));
   };
 
+  const generalCss = {
+    width: "140px",
+    display: "flex",
+    justifyContent: "space-around",
+    opacity: "0.9",
+  };
   return (
     <div>
       <Wrap>
@@ -53,25 +62,36 @@ const PsychologistsList = () => {
               <FilterSelect onChange={handleSelect} />
             </Label>
           </SelectWrap>
-
-          {/* Перевірка на порожній список, якщо фільтрація нічого не знайшла */}
-          {filteredPsychologistsPerPage.length === 0 ? (
+          {isLoading ? (
+            <LoaderContainerStyle>
+              <PulseLoader
+                cssOverride={generalCss}
+                color="var(--highlight-color)" // 🔥 окремо задається колір
+                loading={true}
+                size={30}
+              />
+            </LoaderContainerStyle>
+          ) : filteredPsychologistsPerPage.length === 0 ? (
             <NotFound>No psychologists found</NotFound>
           ) : (
-            filteredPsychologistsPerPage.map((psychologist) => (
-              <PsychologistCard
-                psychologist={psychologist}
-                key={psychologist.id}
-              />
-            ))
+            <>
+              {filteredPsychologistsPerPage.map((psychologist) => (
+                <PsychologistCard
+                  psychologist={psychologist}
+                  key={psychologist.id}
+                />
+              ))}
+              {filteredPsychologistsPerPage.length > 0 && // Масив не порожній
+                filteredPsychologistsPerPage.length % 3 === 0 && (
+                  <Button
+                    type="button"
+                    onClick={() => setPer_page(per_page + 3)}
+                  >
+                    Load more
+                  </Button>
+                )}
+            </>
           )}
-
-          {filteredPsychologistsPerPage.length > 0 && // Масив не порожній
-            filteredPsychologistsPerPage.length % 3 === 0 && (
-              <Button type="button" onClick={() => setPer_page(per_page + 3)}>
-                Load more
-              </Button>
-            )}
         </Container>
       </Wrap>
     </div>
@@ -79,3 +99,12 @@ const PsychologistsList = () => {
 };
 
 export default PsychologistsList;
+
+{
+  /* { filteredPsychologistsPerPage.length > 0 && // Масив не порожній
+          //   filteredPsychologistsPerPage.length % 3 === 0 && (
+          //     <Button type="button" onClick={() => setPer_page(per_page + 3)}>
+          //       Load more
+          //     </Button>
+          //   )} */
+}

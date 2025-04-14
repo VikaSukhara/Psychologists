@@ -12,8 +12,9 @@ const psychologistsSlice = createSlice({
       state.isLoading = true;
     },
     getPsychologists(state, action) {
-      state.psychologistsList = [...action.payload];
       state.isLoading = false;
+      state.psychologistsList = [...action.payload];
+      
     },
   },
 });
