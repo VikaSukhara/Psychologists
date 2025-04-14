@@ -19,10 +19,7 @@ function ForgotPassword({ toggleModal }) {
   const handlePasswordReset = (values) => {
     const email = values.email;
     const auth = getAuth();
-    //щоб отримати об'єкт автентифікації.
-    // Він використовується для виконання операцій з автентифікації в Firebase.
 
-    // метод для скидання пароля
     sendPasswordResetEmail(auth, email)
       //метод  для відправки посилання на електронну пошту користувача для скидання пароля.
 

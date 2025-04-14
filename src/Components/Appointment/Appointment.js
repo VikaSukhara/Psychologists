@@ -75,8 +75,8 @@ const Appointment = ({ psychologist, toggleModal, id }) => {
         }}
         validationSchema={AppointmentSchema}
         onSubmit={(values, { resetForm }) => {
-          resetForm(); // Очищуємо форму
-          toggleModal(); // Закриваємо модалку ✅
+          resetForm(); 
+          toggleModal(); 
         }}
       >
         <FormStyled

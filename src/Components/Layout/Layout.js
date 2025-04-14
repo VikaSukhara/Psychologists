@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import {
   BtnContainer,
   BurgerMenuBtn,
@@ -23,22 +23,21 @@ import SideBarMenu from "../SideBar/SideBar";
 
 function Layout() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const isLoggin = useSelector((state) => state.user.isLoggin);
   const userName = useSelector((state) => state.user.user?.name);
-
 
   const [isLogInOpen, setIsLogInOpen] = useState(false);
   const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
 
-
   const openForgotPassword = () => {
     setIsLogInOpen(false);
     setTimeout(() => {
       setIsForgotPasswordOpen(true);
-    }, 100); // або без setTimeout, якщо немає анімацій
+    }, 100);
   };
 
   const toggleModalForgotPassword = () => {
@@ -62,7 +61,6 @@ function Layout() {
 
   const isLaptop = window.innerWidth > 1440;
   const isMobile = window.innerWidth <= 768;
-
 
   return (
     <div>
@@ -124,6 +122,7 @@ function Layout() {
               <NavBtn
                 onClick={() => {
                   dispatch(logOut());
+                  navigate("/");
                 }}
                 style={{ marginRight: "8px" }}
               >
@@ -154,12 +153,20 @@ function Layout() {
             <BtnContainer>
               {" "}
               <NavBtn
-                onClick={() => setIsLogInOpen(true)}
+                onClick={() => {
+                  setIsLogInOpen(true);
+                  navigate("/");
+                }}
                 style={{ marginRight: "8px" }}
               >
                 Log in
               </NavBtn>
-              <NavBtn onClick={() => setIsRegistrationOpen(true)}>
+              <NavBtn
+                onClick={() => {
+                  setIsRegistrationOpen(true);
+                  navigate("/");
+                }}
+              >
                 Registration
               </NavBtn>
             </BtnContainer>

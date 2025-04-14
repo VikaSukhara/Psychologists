@@ -8,12 +8,9 @@ export const Wrap = styled.div`
 
 export const Container = styled.div`
   padding: 10px 10px;
-  // overflow: scroll;
-  // height: 568px;
 
   @media (min-width: 768px) {
     padding: 40px 40px;
-    // height: 736px;
   }
   @media (min-width: 1440px) {
     padding: 64px 128px 100px 128px;
@@ -65,5 +62,17 @@ export const Button = styled.button`
   &:hover {
     transform: scale(var(--button-scale));
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const Ul = styled.ul`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  @media (min-width: 1440px) {
+    width: 1184px;
   }
 `;

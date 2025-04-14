@@ -9,11 +9,10 @@ import storage from "redux-persist/lib/storage"; // Використовуємо
 import persistStore from "redux-persist/es/persistStore";
 import { configureStore } from "@reduxjs/toolkit";
 
-
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["user"], // Тільки favourite буде зберігатися
+  whitelist: ["user"],
 };
 
 const rootReducer = combineReducers({
@@ -23,16 +22,13 @@ const rootReducer = combineReducers({
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-// persistReducer() додає можливість збереження стану в локальному сховищі.
 
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      //функція, яка повертає набір стандартних middleware, які включає Redux Toolkit. Вона за замовчуванням додає redux-thunk та serializableCheck.
-      serializableCheck: false, // Вимикаємо перевірку серіалізації(нестандартні) для persist
+      serializableCheck: false,
     }),
 });
 
 export const persistor = persistStore(store);
-// persistStore() зберігає Redux-стан у LocalStorage.

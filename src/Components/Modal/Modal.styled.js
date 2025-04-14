@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const Backdrop = styled.div`
   position: fixed;
   top: 0;
@@ -20,7 +21,6 @@ export const Backdrop = styled.div`
   transition: opacity 0.8s ease, visibility 0s 0.8s; /* Плавна зміна opacity, delay для visibility */
 `;
 
-/* Стилі для контенту модалки */
 export const ModalContent = styled.div`
   background-color: white;
   padding: 25px 30px;
@@ -42,16 +42,3 @@ export const ModalContent = styled.div`
     isOpen && `transform: translateY(0);`}/* Позиція модалки при відкритті */
 `;
 
-// opacity: 0; /* Початкове значення opacity */
-// transition: opacity 0.3s ease-in-out;
-
-// ${({ isOpen }) => isOpen && `opacity: 1;`} /* Зміна opacity на 1, коли модалка відкрита */
-
-// transform: translateY(-50px); /* Початкова позиція модалки знизу */
-// transition: var(--button-transition); /* Плавне переміщення */
-
-// ${(props) =>
-//   props.isOpen &&
-//   `
-//   transform: translateY(0); /* Позиція модалки при відкритті */
-// `}

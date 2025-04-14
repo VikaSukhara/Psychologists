@@ -15,7 +15,6 @@ export const H2 = styled.h2`
     margin-top: 0px;
   }
 `;
-
 export const P = styled.p`
   font-family: var(--font-family);
   font-weight: 400;
@@ -24,7 +23,6 @@ export const P = styled.p`
   color: var(--paragraph-color);
   margin-bottom: 40px;
 `;
-
 export const Button = styled.button`
   border-radius: 30px;
   height: 52px;
@@ -54,7 +52,6 @@ export const ButtonCross = styled.button`
   right: 20px;
   top: 20px;
 `;
-
 export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
@@ -84,7 +81,6 @@ export const StyledError = styled(ErrorMessage)`
   color: red;
   font-size: 15px;
 `;
-
 export const ButtonForgot = styled.button`
   &: hover {
     color: rgb(22, 91, 251);

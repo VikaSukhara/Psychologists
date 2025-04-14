@@ -11,7 +11,6 @@ export const filteredReducer = (state = initialState, action) => {
   }
 };
 
-
 export const filterAction = (filteredValue) => ({
   type: "filtered/list",
   payload: filteredValue,

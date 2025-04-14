@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
 export const StyledSVG = styled.svg`
   margin-left: 18px;
 `;
@@ -21,6 +22,7 @@ export const Section = styled.section`
     padding: 0 128px;
   }
 `;
+
 export const Wrap = styled.div`
   @media (min-width: 768px) {
     padding: 78px 0 100px 0;
@@ -45,6 +47,7 @@ export const WrapText = styled.div`
     height: 438px;
   }
 `;
+
 export const H1 = styled.h1`
   font-size: 30px;
   font-weight: 500;
@@ -65,10 +68,12 @@ export const H1 = styled.h1`
     margin-bottom: 20px;
   }
 `;
+
 export const HighlightedWord = styled.span`
   font-style: italic;
   color: #3470ff;
 `;
+
 export const H3 = styled.h3`
   font-size: 20px;
   font-weight: 400;
@@ -110,11 +115,11 @@ export const Button = styled(Link)`
     margin-top: 64px;
   }
 
-  transition: var(--button-transition); /* Плавний перехід */
+  transition: var(--button-transition);
 
   &: hover {
     background: #255ee8;
-    transform: scale(var(--button-scale)); /* Збільшення на 5% */
+    transform: scale(var(--button-scale));
   }
 
   &:hover ${StyledSVG} {
@@ -136,11 +141,11 @@ export const ExperienceWrap = styled.div`
     width: 311px;
     height: 118px;
 
-    // @media (min-width: 1440px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  // @media (min-width: 1440px) {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  // }
 `;
 
 export const ExperienceText = styled.p`

@@ -1,13 +1,10 @@
 import {
-  //   ArrowIcon,
   Button,
-  //   CheckMarkIcon,
   CheckMarkWrap,
   ExperienceNumber,
   ExperienceText,
   ExperienceTextWrap,
   ExperienceWrap,
-  //   GetStartLink,
   H1,
   HighlightedWord,
   H3,

@@ -1,28 +1,9 @@
-
-Завдання із зірочкою* 
-
-Критерії виконання 
-● Верстка від 320рх до 1440рх гумова (має в т.ч. коректно відмальовуватись на мобільних та планшетних девайсах), семантична та валідна. 
-● Немає помилок в консолі браузера. 
-
-● Код відформатований та без коментарів. 
-● В репозиторії має бути README.md з описом проєкту: про що цей проєкт, основні технології, макет, ТЗ.
-● Проєкт задеплоєний на github pages,  netlify.com або інший сторонній хостінг
-
-
-
-- забув пароль
-- смс на телеграм про апоінтмент
-
-
-1  Сповіщення користувачів: Реалізувати функцію надсилання сповіщень (наприклад, через електронну пошту або месенджери) про підтвердження запису або нагадування про майбутню консультацію.
-
-2 
-
-
-# 🧠 Psychologists
+# 🧠 Psychologists App – Find and Favorite Specialists Online
 
 A responsive web application for finding and favoriting psychologists. Includes registration, password recovery, catalog filtering, and animations for a smooth user experience.
+
+
+
 
 🔗 **Live Demo**: [Psychologists App](https://vikasukhara.github.io/Psychologists/)  
 📁 **Repository**: [GitHub](https://github.com/VikaSukhara/Psychologists)
@@ -52,19 +33,44 @@ A responsive web application for finding and favoriting psychologists. Includes 
 
 ## 👩‍💻 Role
 
-This is a **solo project**. I built the full app including:
-- Firebase user auth system
-- Filters and routing
-- Favorite functionality
-- Animated, mobile-first interface
+I designed and developed the entire application, including:
+
+- Firebase authentication
+- Catalog filtering and routing
+- Favorites logic
+- Responsive, animated UI
 
 ---
 
 ## 📸 Screenshots
 
-_(Add GIF or screenshots of catalog, login page, favorites)_
 
----
+### 🔐 Registration Modal with Validation
+
+User registration modal with real-time form validation.  
+Invalid fields are highlighted in red, and users can toggle password visibility using the eye icon.
+
+![Registration Modal](./screenshots/registration-modal.png)
+
+
+
+### ❤️ Favourites with Filter Dropdown
+
+Displays the **Favorites** page, where logged-in users can view their saved psychologists.  
+Includes a **filter dropdown** to sort by name, price, popularity, etc.
+
+![Favorites with Filters](./screenshots/favourite-select.png)
+
+
+
+### 📱 Mobile View with Burger Menu
+
+Fully responsive design optimized for mobile devices.  
+Includes a burger menu for easy navigation and a clean layout that adapts to smaller screens.
+
+![Mobile View](./screenshots/mobile-view.png)
+
+
 
 ## 📬 Contact
 

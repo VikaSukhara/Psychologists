@@ -2,16 +2,13 @@ import styled from "styled-components";
 import { Field, ErrorMessage } from "formik";
 import { Form as FormikForm } from "formik";
 
-// Стилізований компонент для форми
 export const FormStyled = styled(FormikForm)`
   display: flex;
-  //   flex-direction: column;
   gap: 18px;
   max-width: 400px;
 
-  /* Прибирає останній відступ у формі */
   & > *:last-child {
-    margin-bottom: 22px; /* Прибирає останній відступ */
+    margin-bottom: 22px;
   }
 `;
 
@@ -81,10 +78,10 @@ export const ButtonLogIn = styled.button`
     margin-top: 40px;
   }
 
-  transition: var(--button-transition); /* Плавний перехід */
+  transition: var(--button-transition);
 
   &:hover {
-    transform: scale(var(--button-scale)); /* Збільшення на 5% */
+    transform: scale(var(--button-scale));
   }
 `;
 
@@ -170,6 +167,6 @@ export const InputContainers = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
     gap: 12px;
-    max-width: 472px; /* Контролюємо ширину контейнера */
+    max-width: 472px;
   }
 `;

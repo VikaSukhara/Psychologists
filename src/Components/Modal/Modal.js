@@ -3,26 +3,22 @@ import { Backdrop, ModalContent } from "./Modal.styled";
 import { useEffect } from "react";
 
 function Modal({ isOpen, toggleModal, children }) {
-
   useEffect(() => {
-    const onEscapeClick = e => {
-      if (e.code === 'Escape') {
+    const onEscapeClick = (e) => {
+      if (e.code === "Escape") {
         toggleModal();
       }
     };
     if (isOpen) {
-      // Заборона на прокручування сторінки
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      // Відновлення прокручування сторінки, коли модалка закрита
-      document.body.style.overflow = '';
-    } 
-    window.addEventListener('keydown', onEscapeClick);
+      document.body.style.overflow = "";
+    }
+    window.addEventListener("keydown", onEscapeClick);
     return () => {
-      window.removeEventListener('keydown', onEscapeClick);
+      window.removeEventListener("keydown", onEscapeClick);
     };
   }, [isOpen, toggleModal]);
-
 
   const onClickBackdrop = (e) => {
     if (e.target === e.currentTarget) {

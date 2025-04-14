@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Field, ErrorMessage } from "formik";
+
 export const H2 = styled.h2`
   font-family: var(--font-family);
   font-weight: 500;
@@ -55,6 +56,7 @@ export const ButtonSignUp = styled.button`
 `;
 
 export const Label = styled.label``;
+
 export const Input = styled(Field)`
   width: 100%;
   height: 52px;

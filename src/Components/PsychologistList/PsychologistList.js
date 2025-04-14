@@ -32,8 +32,7 @@ const PsychologistsList = () => {
   const psychologists = useSelector(selectPsychologists);
   const filter = useSelector((state) => state.filter.selectedfilter);
   const isLoading = useSelector(selectIsLoading);
-  
-  // Використовуємо функцію filterPsychologists для фільтрації та сортування
+
   const filteredPsychologists = filterPsychologists(psychologists, filter);
   const filteredPsychologistsPerPage = filteredPsychologists.slice(0, per_page);
 
@@ -43,7 +42,6 @@ const PsychologistsList = () => {
     fetchData().then((data) => dispatch(getPsychologists(data)));
   }, [dispatch]);
 
-  // Обробник для селекту
   const handleSelect = (selectedOption) => {
     dispatch(filterAction(selectedOption.label));
   };
@@ -68,7 +66,7 @@ const PsychologistsList = () => {
             <LoaderContainerStyle>
               <PulseLoader
                 cssOverride={generalCss}
-                color="var(--highlight-color)" // 🔥 окремо задається колір
+                color="var(--highlight-color)"
                 loading={true}
                 size={30}
               />
@@ -85,7 +83,7 @@ const PsychologistsList = () => {
                   />
                 ))}
               </Ul>
-              {filteredPsychologistsPerPage.length > 0 && // Масив не порожній
+              {filteredPsychologistsPerPage.length > 0 &&
                 filteredPsychologistsPerPage.length % 3 === 0 && (
                   <Button
                     type="button"

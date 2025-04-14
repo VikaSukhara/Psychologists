@@ -3,7 +3,7 @@ import { database } from "../../firebase";
 
 export const fetchData = async () => {
   try {
-    const dbRef = ref(database, "psychologists"); // Вкажи шлях у базі (наприклад, "users")
+    const dbRef = ref(database, "psychologists");
     const snapshot = await get(dbRef);
 
     if (snapshot.exists()) {
@@ -17,5 +17,3 @@ export const fetchData = async () => {
     return null;
   }
 };
-
-// Викликати fetchData() там, де потрібно

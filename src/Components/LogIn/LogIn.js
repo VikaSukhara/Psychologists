@@ -30,7 +30,7 @@ const LogInSchema = Yup.object().shape({
     .required("Required"),
 });
 
-function LogIn({ toggleModal, openForgotPassword ,toggleBurgerMenu}) {
+function LogIn({ toggleModal, openForgotPassword, toggleBurgerMenu }) {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   return (
@@ -78,14 +78,13 @@ function LogIn({ toggleModal, openForgotPassword ,toggleBurgerMenu}) {
               const user = userCredential.user;
 
               updateProfile(user, {
-                //функція Firebase, дозволяє доповнити або змінити інформацію про користувача після того, як він зареєструвався або увійшов.
                 displayName: values.name,
               }).then(() => {
-                const favouritesList = getFavouritesFromLocalStorage(user.uid); // Отримуємо вподобані елементи
+                const favouritesList = getFavouritesFromLocalStorage(user.uid);
                 dispatch(
                   logIn({
                     uid: user.uid,
-                    name: user.displayName, // 🔄 Ми щойно встановили це
+                    name: user.displayName,
                     email: user.email,
 
                     favouritesList,
@@ -93,11 +92,9 @@ function LogIn({ toggleModal, openForgotPassword ,toggleBurgerMenu}) {
                 );
               });
 
-              resetForm(); // Очищуємо форму
-              toggleModal(); // Закриваємо модалку ✅
+              resetForm();
+              toggleModal();
               toggleBurgerMenu();
-                 
-                            
             })
             .catch((err) => {
               toast.warn("Wrong email or password. Try again");
@@ -123,7 +120,7 @@ function LogIn({ toggleModal, openForgotPassword ,toggleBurgerMenu}) {
                 type="button"
                 onClick={() => setShowPassword((prev) => !prev)}
               >
-                {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
+                {showPassword ? <FiEye size={20} />  : <FiEyeOff size={20} />}
               </EyeButton>
             </InputPasswordWrap>
             <StyledError name="password" component="div" />

@@ -17,7 +17,6 @@ export const NavBtn = styled.button`
   }
 
   transition: background 0.3s ease; /* Плавний перехід */
-
   transition: var(--button-transition); /* Плавний перехід */
 
   &:hover {
@@ -52,8 +51,8 @@ export const Container = styled.div`
     position: relative;
   }
 `;
+
 export const HeaderLine = styled.hr`
-  // position: absolute;
   left: 0;
   width: 100vw;
   height: 2px;

@@ -142,8 +142,6 @@ export const HeartButn = styled.button`
   }
 `;
 
-
-
 export const ForHoverCongtainer = styled.div`
   gap: 22px;
   position: relative;
@@ -272,30 +270,6 @@ export const P = styled.p`
   font-size: 18px;
   line-height: 150%;
   color: #8a8a89;
-`;
-
-export const WrapIcons = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-
-  @media (min-width: 768px) {
-    padding-right: 50px;
-  }
-`;
-
-export const WrapIconsBlock = styled.div`
-  display: flex;
-  flex-direction: row;
-
-  @media (min-width: 1440px) {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-items: center;
-  }
 `;
 
 export const OnlineIconWrap = styled.div`

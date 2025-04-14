@@ -75,14 +75,12 @@ function Registration({ toggleModal, toggleBurgerMenu }) {
             .then((userCredential) => {
               const user = userCredential.user;
               updateProfile(user, {
-                //функція Firebase, дозволяє доповнити або змінити інформацію про користувача після того, як він зареєструвався або увійшов.
                 displayName: values.name,
               }).then(() => {
-                // Після оновлення профілю — логін
                 dispatch(
                   logIn({
                     uid: user.uid,
-                    name: user.displayName, // 🔄 Ми щойно встановили це
+                    name: user.displayName,
                     email: user.email,
                   })
                 );
@@ -91,11 +89,10 @@ function Registration({ toggleModal, toggleBurgerMenu }) {
               toast.success(
                 `You have successfully registered, log in to your account`
               );
-              resetForm(); // Очищуємо форму
-              toggleModal(); // Закриваємо модалку ✅
+              resetForm();
+              toggleModal();
               toggleBurgerMenu();
 
-              // Додаємо користувача в Redux Store
               dispatch(
                 logIn({
                   uid: user.uid,
@@ -132,7 +129,7 @@ function Registration({ toggleModal, toggleBurgerMenu }) {
                 type="button"
                 onClick={() => setShowPassword((prev) => !prev)}
               >
-                {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
+                {showPassword ? <FiEye size={20} /> : <FiEyeOff size={20} />}
               </EyeButton>
             </InputWrapper>
 
