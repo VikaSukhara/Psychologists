@@ -12,13 +12,9 @@ export const Backdrop = styled.div`
   align-items: center;
   z-index: 1000;
 
-  opacity: ${({ isOpen }) =>
-    isOpen ? 1 : 0}; /* Плавно змінюється прозорість */
-  visibility: ${({ isOpen }) =>
-    isOpen
-      ? "visible"
-      : "hidden"}; /* Використовуємо visibility для зменшення помилок */
-  transition: opacity 0.8s ease, visibility 0s 0.8s; /* Плавна зміна opacity, delay для visibility */
+  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+  visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
+  transition: opacity 0.3s ease, visibility 0s 0.6s; /* Плавно змінюється прозорість */
 `;
 
 export const ModalContent = styled.div`
@@ -33,12 +29,4 @@ export const ModalContent = styled.div`
     border-radius: 30px;
     width: 599px;
     max-height: 859px;
-
-    transform: translateY(-50px); /* Початкова позиція модалки знизу */
-    transition: transform 0.8s ease; /* Плавне переміщення */
-  }
-
-  ${({ isOpen }) =>
-    isOpen && `transform: translateY(0);`}/* Позиція модалки при відкритті */
 `;
-

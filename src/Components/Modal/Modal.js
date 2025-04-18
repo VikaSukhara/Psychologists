@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import { Backdrop, ModalContent } from "./Modal.styled";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 function Modal({ isOpen, toggleModal, children }) {
   useEffect(() => {
@@ -30,13 +31,21 @@ function Modal({ isOpen, toggleModal, children }) {
 
   return ReactDOM.createPortal(
     <Backdrop className="backdrop" onClick={onClickBackdrop} isOpen={isOpen}>
-      <ModalContent
-        className="modal-content"
+      <motion.div
         onClick={(e) => e.stopPropagation()}
-        isOpen={isOpen}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }} // when is open
+        exit={{ opacity: 0, scale: 0.8 }} //when is close
+        transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        {children}
-      </ModalContent>
+        <ModalContent
+          className="modal-content"
+          onClick={(e) => e.stopPropagation()}
+          isOpen={isOpen}
+        >
+          {children}
+        </ModalContent>
+      </motion.div>
     </Backdrop>,
     document.querySelector("#modal-root")
   );

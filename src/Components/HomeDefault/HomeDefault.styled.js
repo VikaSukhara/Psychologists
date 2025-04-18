@@ -130,7 +130,10 @@ export const Button = styled(Link)`
 
 export const ExperienceWrap = styled.div`
   display: none;
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+   display: flex;
+   align-items: center;
+   justify-content: center;
     position: absolute;
     bottom: 153px;
     right: 254px;
@@ -141,11 +144,7 @@ export const ExperienceWrap = styled.div`
     width: 311px;
     height: 118px;
 
-  // @media (min-width: 1440px) {
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  // }
+
 `;
 
 export const ExperienceText = styled.p`
